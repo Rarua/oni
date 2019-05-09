@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 15
-  productGUID: 5c74176cf7a212d4e87fa0184402c790
+  productGUID: c7ab2be9e1f251943b13d562ca9e5403
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: Onigokko
+  productName: miyazakiGames
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -619,10 +619,10 @@ PlayerSettings:
   facebookXfbml: 0
   facebookFrictionlessRequests: 1
   apiCompatibilityLevel: 6
-  cloudProjectId: fff2b527-7598-4816-9247-d5b88a3f92e9
+  cloudProjectId: 7f259d38-5294-4172-b623-df69e4dd194b
   framebufferDepthMemorylessMode: 0
-  projectName: Onigokko
-  organizationId: rarua
+  projectName: miyazakiGames
+  organizationId: takuya4242
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
