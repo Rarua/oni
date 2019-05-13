@@ -14,7 +14,7 @@ namespace GamepadInput
         public enum Button { A, B, Y, X, RightShoulder, LeftShoulder, RightStick, LeftStick, Back, Start }
         public enum Trigger { LeftTrigger, RightTrigger }
         public enum Axis { LeftStick, RightStick, Dpad }
-        public enum Index { Any, One, Two, Three, Four }
+        public enum Index { Any, One, Two, Three, Four, Five }
 
         public static bool GetButtonDown(Button button, Index controlIndex)
         {
@@ -176,6 +176,21 @@ namespace GamepadInput
                         case Button.RightStick: return KeyCode.Joystick4Button9;
                     }
 
+                    break;
+                case Index.Five:
+                    switch (button)
+                    {
+                        case Button.A: return KeyCode.Joystick5Button0;
+                        case Button.B: return KeyCode.Joystick5Button1;
+                        case Button.X: return KeyCode.Joystick5Button2;
+                        case Button.Y: return KeyCode.Joystick5Button3;
+                        case Button.RightShoulder: return KeyCode.Joystick5Button5;
+                        case Button.LeftShoulder: return KeyCode.Joystick5Button4;
+                        case Button.Back: return KeyCode.Joystick5Button6;
+                        case Button.Start: return KeyCode.Joystick5Button7;
+                        case Button.LeftStick: return KeyCode.Joystick5Button8;
+                        case Button.RightStick: return KeyCode.Joystick5Button9;
+                    }
                     break;
                 case Index.Any:
                     switch (button)

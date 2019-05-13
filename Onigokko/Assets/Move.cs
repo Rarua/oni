@@ -3,16 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using GamepadInput;
 
-public class Player : MonoBehaviour
+public class Move : MonoBehaviour
 {
-    public GamePad.Index PlayerNo;
-    public float speed = 50.0f;
+    [SerializeField] GamePad.Index PlayerNo;
+    [SerializeField] float Walkspeed = 50.0f;
+    [SerializeField] float turnspeed = 2.0f;
     GamepadState keyState;
     Transform MyTransform;
+    CharacterController Controller;
     //Start is called before the first frame update
     void Start()
     {
-
+        Controller = this.GetComponent<CharacterController>();
         MyTransform = this.transform;
     }
 
@@ -24,9 +26,10 @@ public class Player : MonoBehaviour
         var pos = new Vector3(keyState.LeftStickAxis.x, 0, keyState.LeftStickAxis.y);
         pos.Normalize();
         pos = MyTransform.TransformDirection(pos);
-        MyTransform.position += pos * speed;
+        pos.y -= 9.8f * 100.0f;
+        Controller.Move(pos * Walkspeed);
         //回転処理
-        MyTransform.Rotate(0.0f, keyState.rightStickAxis.x, 0.0f, Space.World);
+        MyTransform.Rotate(0.0f, keyState.rightStickAxis.x * turnspeed, 0.0f, Space.World);
         if (keyState.LeftStick)
         {
             MyTransform.rotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
