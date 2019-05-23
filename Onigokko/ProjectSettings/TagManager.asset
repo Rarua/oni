@@ -9,6 +9,9 @@ TagManager:
   - Player3
   - Player4
   - key
+  - Gate
+  - Goal
+  - KeyManager
   layers:
   - Default
   - TransparentFX

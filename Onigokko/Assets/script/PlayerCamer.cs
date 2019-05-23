@@ -17,7 +17,6 @@ public class PlayerCamer : MonoBehaviour
         //pos = targetObject.transform.position;
         var j = Quaternion.Inverse(this.transform.rotation);
         pos = j * pos;
-
     }
 
     // Update is called once per frame

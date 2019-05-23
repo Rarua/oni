@@ -35,4 +35,8 @@ public class Move : MonoBehaviour
             MyTransform.rotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
         }
     }
+    public GamepadState GetkeyState()
+    {
+        return keyState;
+    }
 }
