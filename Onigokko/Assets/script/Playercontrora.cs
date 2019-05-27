@@ -6,7 +6,6 @@ using UnityEngine.UI;  // 追加しましょう
 
 public class Playercontrora : MonoBehaviour
 {
-    [SerializeField] GameObject oniObject;
     [SerializeField] GameObject GameOver;
     [SerializeField] GameObject GameClear;
     [SerializeField] GameObject GameAbutton;
@@ -20,30 +19,25 @@ public class Playercontrora : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ((this.transform.position - oniObject.transform.position).magnitude <= 500.0f)
-        {
-            GameOver.SetActive(true);
-            //ここから鍵を落とす処理
-            KeyDrop();
-            Destroy(this.gameObject);
-            //this.GetComponent<Move>().enabled = false;
-        }
+        //if ((this.transform.position - oniObject.transform.position).magnitude <= 500.0f)
+        //{
+        //    //this.GetComponent<Move>().enabled = false;
+        //}
     }
     void OnTriggerEnter(Collider t)
     {
         if (t.gameObject.tag == "Gate")
         {
-            Debug.Log("jakzia");
             coroutine=OpenKey(t.gameObject);
             StartCoroutine(coroutine);
         }
-        if(t.gameObject.tag == "Goal")
-        {
-            GameClear.SetActive(true);
-            //ここから鍵を落とす処理
-            KeyDrop();
-            Destroy(this.gameObject);
-        }
+        //if(t.gameObject.tag == "Goal")
+        //{
+        //    GameClear.SetActive(true);
+        //    //ここから鍵を落とす処理
+        //    KeyDrop();
+        //    Destroy(this.gameObject);
+        //}
     }
     private IEnumerator OpenKey(GameObject Gate)
     {
@@ -82,6 +76,23 @@ public class Playercontrora : MonoBehaviour
             StopCoroutine(coroutine);
             GameAbutton.GetComponent<botun>().OFF();
         }
+    }
+    public void death()
+    {
+        GameOver.SetActive(true);
+        delete();
+    }
+    public void clear()
+    {
+        Debug.Log("五ーーーーーる");
+        GameClear.SetActive(true);
+        delete();
+    }
+    void delete()
+    {
+        //ここから鍵を落とす処理
+        KeyDrop();
+        Destroy(this.gameObject);
     }
     void KeyDrop()
     {

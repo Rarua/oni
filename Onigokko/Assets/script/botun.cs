@@ -30,7 +30,6 @@ public class botun : MonoBehaviour
         else
         {
             Debug.Log("ばかやろーーーー");
-            Debug.Log(opentaim);
             UIobj.fillAmount = 0.0f;
             time = 0.0f;
         }
