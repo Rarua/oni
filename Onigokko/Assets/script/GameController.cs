@@ -14,7 +14,6 @@ public class GameController : MonoBehaviour
         for (int i = 0; i < count; ++i)
         {
             Display.displays[i].Activate();
-            Debug.Log("baka----");
         }
     }
     void Start()

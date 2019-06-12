@@ -24,7 +24,6 @@ public class GameDirector : MonoBehaviour
         if(count>=4)
         {
             SceneManager.LoadScene(scene);
-
         }
     }
     public void death(int No)
