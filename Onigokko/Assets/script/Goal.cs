@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Goal : MonoBehaviour
 {
+    [SerializeField] GameObject GameManager;
+    GameDirector game;
     // Start is called before the first frame update
     void Start()
     {
-        
+        game = GameManager.GetComponent<GameDirector>();
     }
 
     // Update is called once per frame
@@ -19,7 +21,7 @@ public class Goal : MonoBehaviour
     {
         if (t.gameObject.tag == "Player")
         {
-            t.gameObject.GetComponent<Playercontrora>().clear();
+            game.clear(t.gameObject.GetComponent<Playercontrora>().No);
         }
     }
 }

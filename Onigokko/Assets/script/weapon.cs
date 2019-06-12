@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class weapon : MonoBehaviour
 {
+    
+    [SerializeField] GameObject GameManager;
+    GameDirector Director;
     // Start is called before the first frame update
     void Start()
     {
-        
+        Director = GameManager.GetComponent<GameDirector>();
     }
     // Update is called once per frame
     void Update()
@@ -18,7 +21,8 @@ public class weapon : MonoBehaviour
     {
         if (t.gameObject.tag == "Player")
         {
-            t.gameObject.GetComponent<Playercontrora>().death();
+            Director.death(t.gameObject.GetComponent<Playercontrora>().No);
+            //t.gameObject.GetComponent<Playercontrora>().death();
         }
     }
 }

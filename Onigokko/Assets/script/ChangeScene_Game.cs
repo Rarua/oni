@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ChangeScene_Game : MonoBehaviour
 {
-    [SerializeField] string scene;
+    [SerializeField] int scene;
     // Start is called before the first frame update
     void Start()
     {

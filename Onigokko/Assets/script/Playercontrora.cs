@@ -10,6 +10,7 @@ public class Playercontrora : MonoBehaviour
     [SerializeField] GameObject GameClear;
     [SerializeField] GameObject GameAbutton;
     public float KeyOpen = 3.0f;
+    public int No = 1;
     private IEnumerator coroutine;
     // Start is called before the first frame update
     void Start()
