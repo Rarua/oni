@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/New Scene 2.unity
     guid: 735d2e0d81a6509448b0616d8323db8e
+  - enabled: 0
+    path: Assets/GamePadInput/Demo/Demo.unity
+    guid: 7b6e520eb497da44f8359f8d8dc9c1e0
   m_configObjects: {}

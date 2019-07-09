@@ -2,8 +2,9 @@
 //Date: 16 May 2013
 //Email: Merrik44@live.com
 
-using UnityEngine;
 using System.Collections;
+using UnityEngine;
+using XboxCtrlrInput;
 
 namespace GamepadInput
 {
@@ -15,23 +16,31 @@ namespace GamepadInput
         public enum Trigger { LeftTrigger, RightTrigger }
         public enum Axis { LeftStick, RightStick, Dpad }
         public enum Index { Any, One, Two, Three, Four, Five }
-
+        public enum XboxAxisz
+        {
+            LeftStickX,
+            LeftStickY,
+            RightStickX,
+            RightStickY,
+            LeftTrigger,
+            RightTrigger
+        }
         public static bool GetButtonDown(Button button, Index controlIndex)
         {
-            KeyCode code = GetKeycode(button, controlIndex);
-            return Input.GetKeyDown(code);
+            //KeyCode code = GetKeycode(button, controlIndex);
+            return XCI.GetButtonDown((XboxButton)button, (XboxController)controlIndex);
         }
 
         public static bool GetButtonUp(Button button, Index controlIndex)
         {
-            KeyCode code = GetKeycode(button, controlIndex);
-            return Input.GetKeyUp(code);
+            //KeyCode code = GetKeycode(button, controlIndex);
+            return XCI.GetButtonUp((XboxButton)button, (XboxController)controlIndex);
         }
 
         public static bool GetButton(Button button, Index controlIndex)
         {
-            KeyCode code = GetKeycode(button, controlIndex);
-            return Input.GetKey(code);
+           // KeyCode code = GetKeycode(button, controlIndex);
+            return XCI.GetButton((XboxButton)button, (XboxController)controlIndex);
         }
 
         /// <summary>
@@ -43,37 +52,44 @@ namespace GamepadInput
         /// <returns></returns>
         public static Vector2 GetAxis(Axis axis, Index controlIndex, bool raw = false)
         {
-
-            string xName = "", yName = "";
+            XboxAxisz xName= XboxAxisz.LeftStickX;
+            XboxAxisz yName = XboxAxisz.LeftStickY;
+            Vector2 axisXY = Vector3.zero;
             switch (axis)
             {
                 case Axis.Dpad:
-                    xName = "DPad_XAxis_" + (int)controlIndex;
-                    yName = "DPad_YAxis_" + (int)controlIndex;
-                    break;
+                    axisXY.x = XCI.GetDPad(XboxDPad.Up)? 1.0f:0.0f;
+                    axisXY.x -= XCI.GetDPad(XboxDPad.Down) ? 1.0f : 0.0f;
+                    axisXY.y = XCI.GetDPad(XboxDPad.Right) ? 1.0f : 0.0f;
+                    axisXY.y -= XCI.GetDPad(XboxDPad.Left) ? 1.0f : 0.0f;
+                    return axisXY;
+                    //break;
                 case Axis.LeftStick:
-                    xName = "L_XAxis_" + (int)controlIndex;
-                    yName = "L_YAxis_" + (int)controlIndex;
+                    xName = XboxAxisz.LeftStickX;
+                    // "XboxAxisXJoy" + (int)controlIndex;
+                    yName = XboxAxisz.LeftStickY;
+                        //"XboxAxisYJoy" + (int)controlIndex;
                     break;
                 case Axis.RightStick:
-                    xName = "R_XAxis_" + (int)controlIndex;
-                    yName = "R_YAxis_" + (int)controlIndex;
+                    xName = XboxAxisz.RightStickX;
+                    //"XboxAxis4Joy" + (int)controlIndex;
+                    yName = XboxAxisz.RightStickY;
+                    //"XboxAxis5Joy" + (int)controlIndex;
                     break;
             }
-
-            Vector2 axisXY = Vector3.zero;
+            ;
 
             try
             {
                 if (raw == false)
                 {
-                    axisXY.x = Input.GetAxis(xName);
-                    axisXY.y = -Input.GetAxis(yName);
+                    axisXY.x = XCI.GetAxis((XboxAxis)xName, (XboxController)controlIndex);
+                    axisXY.y = XCI.GetAxis((XboxAxis)yName, (XboxController)controlIndex);
                 }
                 else
                 {
-                    axisXY.x = Input.GetAxisRaw(xName);
-                    axisXY.y = -Input.GetAxisRaw(yName);
+                    axisXY.x = XCI.GetAxisRaw((XboxAxis)xName, (XboxController)controlIndex);
+                    axisXY.y = XCI.GetAxisRaw((XboxAxis)yName, (XboxController)controlIndex);
                 }
             }
             catch (System.Exception e)
@@ -89,9 +105,9 @@ namespace GamepadInput
             //
             string name = "";
             if (trigger == Trigger.LeftTrigger)
-                name = "TriggersL_" + (int)controlIndex;
+                name = "XboxAxis9Joy" + (int)controlIndex;
             else if (trigger == Trigger.RightTrigger)
-                name = "TriggersR_" + (int)controlIndex;
+                name = "XboxAxis10Joy" + (int)controlIndex;
 
             //
             float axis = 0;

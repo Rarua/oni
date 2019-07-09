@@ -5,9 +5,11 @@ using GamepadInput;
 
 public class Move : MonoBehaviour
 {
-    [SerializeField] GamePad.Index PlayerNo;
+    public enum Index { Any, One, Two, Three, Four, Five }
+    [SerializeField] Index PlayerNo;
     [SerializeField] float Walkspeed = 50.0f;
     [SerializeField] float turnspeed = 2.0f;
+    Vector2 kata;
     GamepadState keyState;
     Transform MyTransform;
     CharacterController Controller;
@@ -21,7 +23,12 @@ public class Move : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        keyState = GamePad.GetState(PlayerNo, false);
+        keyState = GamePad.GetState((GamePad.Index)PlayerNo, false);
+
+        kata.x = keyState.LeftStickAxis.x;
+        kata.y = keyState.LeftStickAxis.y;
+        //kata.x = 0.0f;
+
         //移動処理
         var pos = new Vector3(keyState.LeftStickAxis.x, 0, keyState.LeftStickAxis.y);
         pos.Normalize();
@@ -38,5 +45,9 @@ public class Move : MonoBehaviour
     public GamepadState GetkeyState()
     {
         return keyState;
+    }
+    public Vector2 getjsa()
+    {
+        return kata;
     }
 }

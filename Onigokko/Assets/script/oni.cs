@@ -21,7 +21,7 @@ public class oni : MonoBehaviour
     {
         var k = this.GetComponent<Move>().GetkeyState();
 
-        Debug.Log(attak);
+       // Debug.Log(attak);
         if (k != null)
         {
             if (k.A && attak == true)
