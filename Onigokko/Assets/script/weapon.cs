@@ -22,7 +22,6 @@ public class weapon : MonoBehaviour
         if (t.gameObject.tag == "Player")
         {
             Director.death(t.gameObject.GetComponent<Playercontrora>().No);
-            //t.gameObject.GetComponent<Playercontrora>().death();
         }
     }
 }

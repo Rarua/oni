@@ -7,7 +7,6 @@ public class taima : MonoBehaviour
 {
     [SerializeField] List<GameObject> taim;
     [SerializeField] float tai = 3.0f;
-    [SerializeField] List<GameObject> knanana;
     float minit = 0.0f;
     Text[] score_text;
     // Start is called before the first frame update
@@ -31,9 +30,7 @@ public class taima : MonoBehaviour
         }
         for (int i=0;i< taim.Count; i++)
         {
-            // score_text[i].text = tai.ToString("F0")+":"+ minit.ToString("F2");
-            var n = knanana[i].GetComponent<Move>();
-            score_text[i].text = n.getjsa().x.ToString("F2") + "ｘ軸:" + n.getjsa().y.ToString("F2") + "Y軸";
+            score_text[i].text = tai.ToString("F0")+":"+ minit.ToString("F2");
         }
     }
 }

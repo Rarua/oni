@@ -14,8 +14,8 @@ public class PlayerCamer : MonoBehaviour
     void Start()
     {
         pos = targetObject.transform.position - SturtObject.transform.position;
-        //pos = targetObject.transform.position;
         var j = Quaternion.Inverse(this.transform.rotation);
+        //カメラの回転を打ち消す
         pos = j * pos;
     }
 
@@ -25,8 +25,10 @@ public class PlayerCamer : MonoBehaviour
         GamepadState keyState = GamePad.GetState(PlayerNo, false);
         this.transform.rotation = SturtObject.transform.rotation;
         var k  = this.transform.TransformDirection(pos);
-        this.transform.position = new Vector3(k.x+ SturtObject.transform.position.x, k.y+ SturtObject.transform.position.y, k.z+ SturtObject.transform.position.z);
-
+        //前方向に回転加算
+        var posn = SturtObject.transform.position;
+        this.transform.position = new Vector3(k.x+ posn.x, k.y+ posn.y, k.z+ posn.z);
+        //上下回転
         Axis += keyState.rightStickAxis.y;
         Axis = Mathf.Min(Axis, 20.0f);
         Axis = Mathf.Max(Axis, -20.0f);

@@ -9,17 +9,19 @@ public class oni : MonoBehaviour
     private bool attak = true;
     private IEnumerator coroutine;
     private Animator animator;
+    public Move m_move;
     //Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
-        // coroutine = attac();
+        m_move = this.GetComponent<Move>();
+        //coroutine = attac();
     }
 
     // Update is called once per frame
     void Update()
     {
-        var k = this.GetComponent<Move>().GetkeyState();
+        var k = m_move.GetkeyState();
 
        // Debug.Log(attak);
         if (k != null)
@@ -35,7 +37,7 @@ public class oni : MonoBehaviour
     }
     private IEnumerator attac()
     {
-        Debug.Log(1);
+        //Debug.Log(1);
         yield return new WaitForSeconds(2.0f);
         attak = true;
         yield break;

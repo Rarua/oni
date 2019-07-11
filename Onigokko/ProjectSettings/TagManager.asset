@@ -12,6 +12,7 @@ TagManager:
   - Gate
   - Goal
   - KeyManager
+  - Box
   layers:
   - Default
   - TransparentFX
@@ -23,17 +24,17 @@ TagManager:
   - 
   - PostProcessing
   - Camer
+  - Player1
+  - player2
+  - player3
+  - player4
   - 
   - 
   - 
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - map
   - 
   - 
   - 

@@ -21,56 +21,81 @@ namespace oyako
 
 public class KeyManager : MonoBehaviour
 {
-    public GameObject ka1;
-    int Keynum = 2;
-    GameObject[] mam;
-    List<GameObject> AKeylist = new List<GameObject>();
-    List<GameObject> BKeylist = new List<GameObject>();
+    public int Keynum = 2;
+    public int Boxnum = 5;
+    List<GameObject> mam = new List<GameObject>();
+    List<Boxcontroty> AKeylist = new List<Boxcontroty>();
+    List<Boxcontroty> BKeylist = new List<Boxcontroty>();
     // Start is called before the first frame update
     void Start()
     {
-        mam = oyako.ChildrenSearch.GetChildren(this.gameObject);
+        var mam1 = oyako.ChildrenSearch.GetChildren(this.gameObject);
         //int[,] Noka;
         //Dictionary<int, GameObject> fraieh = new Dictionary<int, GameObject>();
 
-
-        for (int i = 1; i < mam.Length; i++)
+        for(int i=0;i< mam1.Length;i++)
+        {
+            if(mam1[i].GetComponent<Boxcontroty>())
+            {
+                mam.Add(mam1[i]);
+            }
+        }
+        Debug.Log(mam1.Length);
+        Debug.Log(mam.Count);
+        for (int i = 0; i < mam.Count; i++)
         {
             int m = Random.Range(0, 2);
             Debug.Log(m);
             if (m != 0)
             {
-                AKeylist.Add(mam[i]);
-                mam[i].GetComponent<Keycontrotry>().SetNo(Gate.Gatetype.One);
+                AKeylist.Add(mam[i].GetComponent<Boxcontroty>());
+                AKeylist[AKeylist.Count-1].SetNo(Gate.Gatetype.One);
             }
             else
             {
-                BKeylist.Add(mam[i]);
-                mam[i].GetComponent<Keycontrotry>().SetNo(Gate.Gatetype.Two);
+                BKeylist.Add(mam[i].GetComponent<Boxcontroty>());
+                BKeylist[BKeylist.Count-1].SetNo(Gate.Gatetype.Two);
             }
         }
-        while (AKeylist.Count < (mam.Length / 2))
+
+        Debug.Log(AKeylist.Count);
+        while (AKeylist.Count < (mam.Count / 2))
         {
-            Debug.Log("a");
             var masma = Random.Range(0, BKeylist.Count);
-            BKeylist[masma].GetComponent<Keycontrotry>().SetNo(Gate.Gatetype.One);
+            BKeylist[masma].SetNo(Gate.Gatetype.One);
             AKeylist.Add(BKeylist[masma]);
             BKeylist.Remove(BKeylist[masma]);
         }
-        while (BKeylist.Count < mam.Length / 2)
+        while (BKeylist.Count < mam.Count / 2)
         {
-            Debug.Log("b");
             var masma = Random.Range(0, AKeylist.Count);
-            AKeylist[masma].GetComponent<Keycontrotry>().SetNo(Gate.Gatetype.Two);
+            AKeylist[masma].SetNo(Gate.Gatetype.Two);
             BKeylist.Add(AKeylist[masma]);
             AKeylist.Remove(AKeylist[masma]);
         }
-        for(int i=0;i< Keynum;i++)
+        //ここで振り分けが決定
+        while (AKeylist.Count > Boxnum)
         {
-          KeySpawn(AKeylist);
-          KeySpawn(BKeylist);
+            Debug.Log("nananan");
+            var masma = Random.Range(0, AKeylist.Count);
+            var Object = AKeylist[masma];
+            AKeylist.Remove(AKeylist[masma]);
+            Destroy(Object.gameObject);
         }
-
+        while (BKeylist.Count > Boxnum)
+        {
+            Debug.Log("nananan0121321");
+            var masma = Random.Range(0, BKeylist.Count);
+            var Object = BKeylist[masma];
+            BKeylist.Remove(BKeylist[masma]);
+            Destroy(Object.gameObject);
+        }
+        //数を調整
+        for (int i = 0; i < Keynum; i++)
+        {
+            KeySpawn(AKeylist);
+            KeySpawn(BKeylist);
+        }
     }
 
     // Update is called once per frame
@@ -78,8 +103,20 @@ public class KeyManager : MonoBehaviour
     {
 
     }
+    public void Bomb(Gate.Gatetype No, Boxcontroty takara)
+    {
+        if (No == Gate.Gatetype.One)
+        {
+            AKeylist.Remove(takara);
+        }
+        else
+        {
+            BKeylist.Remove(takara);
+        }
+    }
     public void KeySpawn(Gate.Gatetype No)
     {
+
         if(No== Gate.Gatetype.One)
         {
             KeySpawn(AKeylist);
@@ -89,11 +126,9 @@ public class KeyManager : MonoBehaviour
             KeySpawn(BKeylist);
         }
     }
-    void KeySpawn(List<GameObject> Keylist)
+    void KeySpawn(List<Boxcontroty> Keylist)
     {
         var SpawnNo = Random.Range(0, Keylist.Count);
-        Keylist[SpawnNo].SetActive(true);
-        Keylist[SpawnNo].transform.parent = null;
-        Keylist.Remove(Keylist[SpawnNo]);
+        Keylist[SpawnNo].GetComponent<Boxcontroty>().sporn();
     }
 }

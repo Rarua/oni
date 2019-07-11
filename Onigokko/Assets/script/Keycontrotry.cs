@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Keycontrotry : MonoBehaviour
 {
-    public GameObject[] Gatepoint;
+   // public GameObject[] Gatepoint;
     public Gate.Gatetype no;
     // Start is called before the first frame update
     void Start()
@@ -22,15 +22,10 @@ public class Keycontrotry : MonoBehaviour
     {
         no = No;
     }
-    void OnTriggerStay(Collider t)
+    public void GetKey(Transform transform)
     {
-        if (t.gameObject.tag == "Player"&& this.transform.parent==null)
-        {
-            this.transform.parent = t.transform;
-            this.GetComponent<MeshRenderer>().enabled = false;
-            //this.GetComponent<CapsuleCollider>().enabled = false;
-        }
-        //Debug.Log(t.gameObject.tag);
-
+        var mam1 = oyako.ChildrenSearch.GetChildren(this.gameObject);
+        mam1[1].gameObject.GetComponent<MeshRenderer>().enabled = false;
+        this.transform.parent = transform;
     }
 }
