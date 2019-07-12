@@ -42,12 +42,9 @@ public class KeyManager : MonoBehaviour
                 mam.Add(mam1[i]);
             }
         }
-        Debug.Log(mam1.Length);
-        Debug.Log(mam.Count);
         for (int i = 0; i < mam.Count; i++)
         {
             int m = Random.Range(0, 2);
-            Debug.Log(m);
             if (m != 0)
             {
                 AKeylist.Add(mam[i].GetComponent<Boxcontroty>());
@@ -59,8 +56,7 @@ public class KeyManager : MonoBehaviour
                 BKeylist[BKeylist.Count-1].SetNo(Gate.Gatetype.Two);
             }
         }
-
-        Debug.Log(AKeylist.Count);
+        
         while (AKeylist.Count < (mam.Count / 2))
         {
             var masma = Random.Range(0, BKeylist.Count);
@@ -79,7 +75,6 @@ public class KeyManager : MonoBehaviour
         //ここで振り分けが決定
         while (AKeylist.Count > Boxnum)
         {
-            Debug.Log("nananan");
             var masma = Random.Range(0, AKeylist.Count);
             var Object = AKeylist[masma];
             AKeylist.Remove(AKeylist[masma]);
@@ -87,7 +82,6 @@ public class KeyManager : MonoBehaviour
         }
         while (BKeylist.Count > Boxnum)
         {
-            Debug.Log("nananan0121321");
             var masma = Random.Range(0, BKeylist.Count);
             var Object = BKeylist[masma];
             BKeylist.Remove(BKeylist[masma]);

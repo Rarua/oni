@@ -29,8 +29,10 @@ namespace XboxCtrlrInput
 		First = 1,
 		Second = 2,
 		Third = 3,
-		Fourth = 4
-	}
+		Fourth = 4,
+
+        Five = 5
+    }
 
 	/// <summary>
 	/// 	List of enumerated identifiers for Xbox buttons.
@@ -1150,7 +1152,7 @@ namespace XboxCtrlrInput
 		
 		private static bool IsControllerNumberValid(int ctrlrNum)
 		{
-			if(ctrlrNum > 0 && ctrlrNum <= 4)
+			if(ctrlrNum > 0 && ctrlrNum <= 5)
 			{
 				return true;
 			}
@@ -1680,8 +1682,8 @@ namespace XboxCtrlrInput
         // ------------ Members --------------- //
 
         // Windows variables
-        private static GamePadState[] xInputCtrlrs = new GamePadState[4];
-        private static GamePadState[] xInputCtrlrsPrev = new GamePadState[4];
+        private static GamePadState[] xInputCtrlrs = new GamePadState[5];
+        private static GamePadState[] xInputCtrlrsPrev = new GamePadState[5];
         private static int xiPrevFrameCount = -1;
         private static bool xiUpdateAlreadyCalled = false;
         private static bool xiNumOfCtrlrsQueried = false;

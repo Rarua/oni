@@ -2402,6 +2402,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5477534852261903988}
   - component: {fileID: 5477534852254437398}
+  - component: {fileID: 6805064346226832982}
+  - component: {fileID: 2813559483855471218}
+  - component: {fileID: 5188471093036715432}
   m_Layer: 0
   m_Name: Player02
   m_TagString: Untagged
@@ -2444,6 +2447,58 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6805064346226832982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5477534852261864020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bab0289b09f612f4387cd121dea54eb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameOver: {fileID: 0}
+  GameClear: {fileID: 0}
+  GameAbutton: {fileID: 0}
+  HP: 2
+  KeyOpen: 3
+  No: 2
+--- !u!114 &2813559483855471218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5477534852261864020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61cd2fa3d97dc3e418f19883e73bcfef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerNo: 2
+  Walkspeed: 2
+  turnspeed: 5
+  sutamina: {fileID: 0}
+--- !u!143 &5188471093036715432
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5477534852261864020}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5477534852261864022
 GameObject:
   m_ObjectHideFlags: 0

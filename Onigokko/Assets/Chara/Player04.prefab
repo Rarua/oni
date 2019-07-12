@@ -2751,6 +2751,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4720553409888097574}
   - component: {fileID: 4720553409880881848}
+  - component: {fileID: 5746452010975492165}
+  - component: {fileID: 4852656860003002425}
+  - component: {fileID: 6725397430008888548}
   m_Layer: 0
   m_Name: Player04
   m_TagString: Untagged
@@ -2829,6 +2832,58 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5746452010975492165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4720553409888127174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61cd2fa3d97dc3e418f19883e73bcfef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerNo: 4
+  Walkspeed: 2
+  turnspeed: 5
+  sutamina: {fileID: 0}
+--- !u!114 &4852656860003002425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4720553409888127174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bab0289b09f612f4387cd121dea54eb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameOver: {fileID: 0}
+  GameClear: {fileID: 0}
+  GameAbutton: {fileID: 0}
+  HP: 2
+  KeyOpen: 3
+  No: 4
+--- !u!143 &6725397430008888548
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4720553409888127174}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4720553409888127176
 GameObject:
   m_ObjectHideFlags: 0

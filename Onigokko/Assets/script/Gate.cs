@@ -32,12 +32,13 @@ public class Gate : MonoBehaviour
         Keynum++;
         if (Keynum >= 2)
         {
-            while (transform.position.y>=0) {
-                transform.position = new Vector3(transform.position.x, transform.position.y - 10.0f, transform.position.z);
+            this.GetComponent<BoxCollider>().enabled = false;
+            while (transform.rotation.y <= 90.0) {
+                transform.rotation = new Quaternion(0.0f, transform.rotation.y+1.5f, 0.0f,1.0f);
                 yield return null;
             }
+            transform.rotation = new Quaternion(0.0f,90.0f, 0.0f, 1.0f);
             ms.gate();
-            Destroy(this.gameObject);
         }
         yield break;
         // コルーチンの処理  

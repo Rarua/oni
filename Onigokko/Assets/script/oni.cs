@@ -9,7 +9,7 @@ public class oni : MonoBehaviour
     private bool attak = true;
     private IEnumerator coroutine;
     private Animator animator;
-    public Move m_move;
+    private Move m_move;
     //Start is called before the first frame update
     void Start()
     {
@@ -26,7 +26,7 @@ public class oni : MonoBehaviour
        // Debug.Log(attak);
         if (k != null)
         {
-            if (k.A && attak == true)
+            if (k.A /*&& attak == true*/)
             {
                 coroutine = attac();
                 StartCoroutine(coroutine);

@@ -17,7 +17,6 @@ public class Playercontrora : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Staaaaato");
         m_Abutton = GameAbutton.GetComponent<botun>();
     }
 
