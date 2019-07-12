@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class Boxcontroty : MonoBehaviour
 {
-    // public GameObject[] Gatepoint;
+    public GameObject kaji;
+    public GameObject sprit;
     public Gate.Gatetype no;
+    public Sprite aka;
+    private Keycontrotry kajin;
+    private SpriteRenderer m_SpriteRenderer;
     // Start is called before the first frame update
     void Start()
     {
+        m_SpriteRenderer = sprit.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -21,40 +26,34 @@ public class Boxcontroty : MonoBehaviour
     }
     public void sporn()
     {
-        var ma = oyako.ChildrenSearch.GetChildren(this.gameObject);
-        for (int i = 0; i < ma.Length; i++)
-        {
-            var n = ma[i].GetComponent<Keycontrotry>();
-            if (n)
-            {
-                n.SetNo(no);
-                ma[i].SetActive(true);
-                break;
-            }
-        }
+        Debug.Log("anedihfa");
+
+        kajin = (Instantiate(kaji, this.transform.position, Quaternion.identity) as GameObject).GetComponent<Keycontrotry>();
+        kajin.transform.parent = this.transform;
+        kajin.SetNo(no);
+        this.GetComponent<CapsuleCollider>().enabled = true;
+        kajin.gameObject.SetActive(true);
     }
     public void BoxOpen(Transform player)
     {
-        var ma = oyako.ChildrenSearch.GetChildren(this.gameObject);
-        for (int i = 0; i < ma.Length; i++)
+        if (kajin.enabled)
         {
-            var n = ma[i].GetComponent<Keycontrotry>();
-            if (n)
-            {
-                if(ma[i].activeSelf)
-                {
-                   n.GetKey(player);
-                }
-                else
-                {
-                    this.transform.parent.GetComponent<KeyManager>().Bomb(no, this);
-                    //エフェクト
-                    this.gameObject.SetActive(false);
-
-                }
-                Debug.Log("???????");
-                break;
-            }
+            kajin.GetKey(player);
+            this.GetComponent<CapsuleCollider>().enabled = false;
         }
+        else
+        {
+
+            StartCoroutine(OpenBox());
+        }
+    }
+    private IEnumerator OpenBox()
+    {
+        this.transform.parent.GetComponent<KeyManager>().Bomb(no, this);
+        m_SpriteRenderer.sprite = aka;
+        //エフェクト
+        yield return new WaitForSeconds(6.0f);
+        this.gameObject.SetActive(false);
+        yield return null;
     }
 }

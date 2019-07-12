@@ -9,6 +9,7 @@ public class Playercontrora : MonoBehaviour
     [SerializeField] GameObject GameOver;
     [SerializeField] GameObject GameClear;
     [SerializeField] GameObject GameAbutton;
+    [SerializeField] int HP = 2;
     botun m_Abutton;
     public float KeyOpen = 3.0f;
     public int No = 1;
@@ -16,6 +17,7 @@ public class Playercontrora : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("Staaaaato");
         m_Abutton = GameAbutton.GetComponent<botun>();
     }
 
@@ -41,6 +43,7 @@ public class Playercontrora : MonoBehaviour
         while (true)
         {
             {
+                Debug.Log("nana");
                 GameAbutton.SetActive(true);
                 while (m_Abutton.gauge() < 3.0f)
                 {
@@ -54,8 +57,8 @@ public class Playercontrora : MonoBehaviour
         }
         yield return null;
     }
-    
-        
+
+
     private IEnumerator OpenKey(Gate Gate)
     {
         while (true)
@@ -63,12 +66,15 @@ public class Playercontrora : MonoBehaviour
             var ma = oyako.ChildrenSearch.GetChildren(this.gameObject);
             for (int i = 0; i < ma.Length; i++)
             {
-                if (ma[i].GetComponent<Keycontrotry>())
+                Debug.Log("Aプッシュ！！");
+                var nm = ma[i].GetComponent<Keycontrotry>();
+                if (nm)
                 {
+                    Debug.Log("Aプッシュ！！");
                     //1つ以上鍵がある
                     //ぼたんを押すと
-                    var key = ma[i].GetComponent<Keycontrotry>();
-                    if (Gate.GateNo == key.no)
+
+                    if (Gate.GateNo == nm.no)
                     {
                         GameAbutton.SetActive(true);
                         Debug.Log("Aプッシュ！！");
@@ -78,37 +84,35 @@ public class Playercontrora : MonoBehaviour
                         }
                         Debug.Log("終わり！！！閉廷！！！！");
                         Gate.GateOpen();
-                        Destroy(key.gameObject);
+                        Destroy(nm.gameObject);
                         m_Abutton.OFF();
                     }
-                    break;
                 }
             }
-        yield return null;
+            yield break;
         }
     }
     void OnTriggerExit(Collider t)
     {
-        if (coroutine!=null)
+        if (t.gameObject.tag == "Gate")
         {
-            if (t.gameObject.tag == "Gate")
-            {
-                StopCoroutine(coroutine);
-                coroutine = null;
-                m_Abutton.OFF();
-            }
-            if (t.gameObject.tag == "Box")
-            {
-                StopCoroutine(coroutine);
-                coroutine = null;
-                m_Abutton.OFF();
-            }
+            StopCoroutine(coroutine);
+            m_Abutton.OFF();
+        }
+        if (t.gameObject.tag == "Box")
+        {
+            StopCoroutine(coroutine);
+            m_Abutton.OFF();
         }
     }
-    public void death()
+    public void death(int dame)
     {
-        GameOver.SetActive(true);
-        delete();
+        HP -= dame;
+        if (HP <= 0)
+        {
+            GameOver.SetActive(true);
+            delete();
+        }
     }
     public void clear()
     {
@@ -119,20 +123,29 @@ public class Playercontrora : MonoBehaviour
     void delete()
     {
         //ここから鍵を落とす処理
+
         KeyDrop();
         Destroy(this.gameObject);
+
     }
     void KeyDrop()
     {
         var Childrens = oyako.ChildrenSearch.GetChildren(this.gameObject);
         var manager = GameObject.FindWithTag("KeyManager");
+        int j = 00;
+        List<Keycontrotry> ma = new List<Keycontrotry>();
         for (int i = 0; i < Childrens.Length; i++)
         {
             if (Childrens[i].tag == "key")
             {
-                manager.GetComponent<KeyManager>().KeySpawn(Childrens[i].GetComponent<Keycontrotry>().no);
-                Destroy(Childrens[i]);
+                ma.Add(Childrens[i].GetComponent<Keycontrotry>());
+                j++;
+                //Destroy(Childrens[i]);
             }
         }
+        Debug.Log(ma);
+
+        manager.GetComponent<KeyManager>().KeySpawn(ma,j);
+
     }
 }

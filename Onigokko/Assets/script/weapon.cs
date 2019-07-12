@@ -7,6 +7,7 @@ public class weapon : MonoBehaviour
     
     [SerializeField] GameObject GameManager;
     GameDirector Director;
+    int dame = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +22,7 @@ public class weapon : MonoBehaviour
     {
         if (t.gameObject.tag == "Player")
         {
-            Director.death(t.gameObject.GetComponent<Playercontrora>().No);
+            Director.death(t.gameObject.GetComponent<Playercontrora>().No, dame);
         }
     }
 }

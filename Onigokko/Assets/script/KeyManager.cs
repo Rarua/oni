@@ -24,6 +24,8 @@ public class KeyManager : MonoBehaviour
     public int Keynum = 2;
     public int Boxnum = 5;
     List<GameObject> mam = new List<GameObject>();
+    List<float>  AspoonNo= new List<float>();
+    List<float> BspoonNo = new List<float>();
     List<Boxcontroty> AKeylist = new List<Boxcontroty>();
     List<Boxcontroty> BKeylist = new List<Boxcontroty>();
     // Start is called before the first frame update
@@ -72,6 +74,7 @@ public class KeyManager : MonoBehaviour
             AKeylist[masma].SetNo(Gate.Gatetype.Two);
             BKeylist.Add(AKeylist[masma]);
             AKeylist.Remove(AKeylist[masma]);
+            BspoonNo.Add(0);
         }
         //ここで振り分けが決定
         while (AKeylist.Count > Boxnum)
@@ -90,11 +93,16 @@ public class KeyManager : MonoBehaviour
             BKeylist.Remove(BKeylist[masma]);
             Destroy(Object.gameObject);
         }
+        for(int i=0;i< Boxnum; i++)
+        {
+            AspoonNo.Add(0);
+            BspoonNo.Add(0);
+        }
         //数を調整
         for (int i = 0; i < Keynum; i++)
         {
-            KeySpawn(AKeylist);
-            KeySpawn(BKeylist);
+            KeySpawn(AKeylist, AspoonNo);
+            KeySpawn(BKeylist, BspoonNo);
         }
     }
 
@@ -107,28 +115,47 @@ public class KeyManager : MonoBehaviour
     {
         if (No == Gate.Gatetype.One)
         {
+            AspoonNo.Remove(AspoonNo[AKeylist.IndexOf(takara)]);
             AKeylist.Remove(takara);
         }
         else
         {
+            BspoonNo.Remove(BspoonNo[BKeylist.IndexOf(takara)]);
             BKeylist.Remove(takara);
         }
     }
-    public void KeySpawn(Gate.Gatetype No)
+    public void KeySpawn(List<Keycontrotry> No,int kosuu)
     {
-
-        if(No== Gate.Gatetype.One)
+        for (int i = 0; i < AspoonNo.Count; i++)
         {
-            KeySpawn(AKeylist);
+            AspoonNo[i] = 0;
         }
-        else
+        for (int i = 0; i < BspoonNo.Count; i++)
         {
-            KeySpawn(BKeylist);
+            BspoonNo[i] = 0;
+        }
+        for (int i = 0; i < kosuu; i++)
+        {
+            if (No[i].no == Gate.Gatetype.One)
+            {
+                KeySpawn(AKeylist, AspoonNo);
+            }
+            else
+            {
+                KeySpawn(BKeylist, BspoonNo);
+            }
         }
     }
-    void KeySpawn(List<Boxcontroty> Keylist)
+    void KeySpawn(List<Boxcontroty> Keylist, List<float> an)
     {
-        var SpawnNo = Random.Range(0, Keylist.Count);
+        int SpawnNo = 0;
+        int bagu = 0;
+        do
+        {
+            SpawnNo = Random.Range(0, Keylist.Count);
+            bagu++;
+        } while (an[SpawnNo] != 0&& bagu<=10000);
         Keylist[SpawnNo].GetComponent<Boxcontroty>().sporn();
+        an[SpawnNo] = 1;
     }
 }

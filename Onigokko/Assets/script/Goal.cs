@@ -21,6 +21,7 @@ public class Goal : MonoBehaviour
     {
         if (t.gameObject.tag == "Player")
         {
+            Debug.Log("VAJMBROJEAGBVROAEKOGVKEAGKRFA");
             game.clear(t.gameObject.GetComponent<Playercontrora>().No);
         }
     }

@@ -25,7 +25,10 @@ public class Keycontrotry : MonoBehaviour
     public void GetKey(Transform transform)
     {
         var mam1 = oyako.ChildrenSearch.GetChildren(this.gameObject);
+        Debug.Log("njanf");
         mam1[1].gameObject.GetComponent<MeshRenderer>().enabled = false;
+        Debug.Log("njanf123");
         this.transform.parent = transform;
+        Debug.Log("njanf15656564");
     }
 }

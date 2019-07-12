@@ -9,22 +9,23 @@ public class Gate : MonoBehaviour
         One, Two
     }
     public Gate.Gatetype GateNo;
+    public GameObject manager;
+    GameDirector ms;
     int Keynum = 0;
     // Start is called before the first frame update
     void Start()
     {
-        
+        ms = manager.GetComponent<GameDirector>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        //transform.position = new Vector3(transform.position.x+10.0f, transform.position.y, transform.position.z);
     }
     public void GateOpen()
     {
         StartCoroutine(Open());
-        //Open();
     }
     private IEnumerator Open()
     {
@@ -35,6 +36,7 @@ public class Gate : MonoBehaviour
                 transform.position = new Vector3(transform.position.x, transform.position.y - 10.0f, transform.position.z);
                 yield return null;
             }
+            ms.gate();
             Destroy(this.gameObject);
         }
         yield break;

@@ -8,7 +8,9 @@ public class Move : MonoBehaviour
     [SerializeField] GamePad.Index PlayerNo;
     [SerializeField] float Walkspeed = 50.0f;
     [SerializeField] float turnspeed = 2.0f;
+    [SerializeField] GameObject sutamina;
     Vector2 kata;
+    sutamina m_sutamina;
     GamepadState keyState;
     Transform MyTransform;
     CharacterController Controller;
@@ -17,6 +19,10 @@ public class Move : MonoBehaviour
     {
         Controller = this.GetComponent<CharacterController>();
         MyTransform = this.transform;
+        if (sutamina)
+        {
+            m_sutamina = sutamina.GetComponent<sutamina>();
+        }
     }
 
     // Update is called once per frame
@@ -30,7 +36,21 @@ public class Move : MonoBehaviour
         pos.Normalize();
         pos = MyTransform.TransformDirection(pos);
         pos.y -= 9.8f * 100.0f;
-        Controller.Move(pos * Walkspeed);
+        float speed = 1.0f;
+        if (m_sutamina)
+        {
+            if (keyState.B)
+            {
+                Debug.Log("babababbababababababbababa");
+
+                if (m_sutamina.gauge1())
+                {
+                    speed *= 2.0f;
+                }
+
+            }
+        }
+        Controller.Move(pos * Walkspeed* speed);
         //回転処理
         MyTransform.Rotate(0.0f, keyState.rightStickAxis.x * turnspeed, 0.0f, Space.World);
         if (keyState.LeftStick)
