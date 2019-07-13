@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1291230753175157484}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -325.39447, y: 95.22826, z: 58.915443}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.9607844, y: 1.9607844, z: 1.9607844}
   m_Children:
   - {fileID: 2299781308037133389}
@@ -74,7 +74,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2299781308037133388}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -30.046875}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.51, y: 0.51, z: 0.51}
   m_Children: []
   m_Father: {fileID: 8817553503441786580}
@@ -82,7 +82,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -21.218746, y: -33.776417}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2299781308037133379
@@ -106,14 +106,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: dfa0823dd3165bb479962b355f78d441, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -157,7 +157,7 @@ PrefabInstance:
     - target: {fileID: 7015233095620969016, guid: 85518162586d25b4092954800074fc88,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -30.046875
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7015233095620969016, guid: 85518162586d25b4092954800074fc88,
         type: 3}
@@ -202,12 +202,12 @@ PrefabInstance:
     - target: {fileID: 7015233095620969016, guid: 85518162586d25b4092954800074fc88,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -21.21878
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7015233095620969016, guid: 85518162586d25b4092954800074fc88,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -33.77642
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7015233095620969016, guid: 85518162586d25b4092954800074fc88,
         type: 3}
@@ -264,6 +264,26 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.02
       objectReference: {fileID: 0}
+    - target: {fileID: 7015233096564282696, guid: 85518162586d25b4092954800074fc88,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7015233096564282697, guid: 85518162586d25b4092954800074fc88,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7015233096564282697, guid: 85518162586d25b4092954800074fc88,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7015233096564282697, guid: 85518162586d25b4092954800074fc88,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 7015233095620969018, guid: 85518162586d25b4092954800074fc88,
         type: 3}
       propertyPath: m_CullTransparentMesh
@@ -273,7 +293,8 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+      objectReference: {fileID: 21300000, guid: c090ed739dea35a4d96155d6e685f83b,
+        type: 3}
     - target: {fileID: 7015233095620969017, guid: 85518162586d25b4092954800074fc88,
         type: 3}
       propertyPath: m_Type
@@ -323,26 +344,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_PreserveAspect
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7015233096564282696, guid: 85518162586d25b4092954800074fc88,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 7015233096564282697, guid: 85518162586d25b4092954800074fc88,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7015233096564282697, guid: 85518162586d25b4092954800074fc88,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7015233096564282697, guid: 85518162586d25b4092954800074fc88,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 7015233096564282698, guid: 85518162586d25b4092954800074fc88,
         type: 3}

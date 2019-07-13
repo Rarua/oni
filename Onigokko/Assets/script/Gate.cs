@@ -8,14 +8,18 @@ public class Gate : MonoBehaviour
     {
         One, Two
     }
-    public Gate.Gatetype GateNo;
+    public Gatetype GateNo;
     public GameObject manager;
+    public GameObject sprite;
     GameDirector ms;
+    Gatesprite sp;
     int Keynum = 0;
     // Start is called before the first frame update
     void Start()
     {
         ms = manager.GetComponent<GameDirector>();
+        Debug.Log(sprite.GetComponent<Gatesprite>());
+        sp = sprite.GetComponent<Gatesprite>();
 
     }
 
@@ -32,12 +36,16 @@ public class Gate : MonoBehaviour
         Keynum++;
         if (Keynum >= 2)
         {
+            float kaku = 0.0f;
+            sp.ChangSprite();
             this.GetComponent<BoxCollider>().enabled = false;
-            while (transform.rotation.y <= 90.0) {
-                transform.rotation = new Quaternion(0.0f, transform.rotation.y+1.5f, 0.0f,1.0f);
+            while (kaku <= 90.0f)
+            {
+                kaku += 3.0f * Time.deltaTime;
+                transform.eulerAngles = new Vector3(0, kaku, 0);
                 yield return null;
             }
-            transform.rotation = new Quaternion(0.0f,90.0f, 0.0f, 1.0f);
+            transform.eulerAngles = (new Vector3(0, 90, 0));
             ms.gate();
         }
         yield break;
