@@ -1,9 +1,7 @@
 fileFormatVersion: 2
 guid: 133d811bb01bcd94193efb9f33d1ebce
-timeCreated: 1435062089
-licenseType: Store
 ModelImporter:
-  serializedVersion: 18
+  serializedVersion: 23
   fileIDToRecycleName:
     100000: bb_female_body
     100002: bb_female_hair
@@ -344,21 +342,218 @@ ModelImporter:
     13700070: underwear_white_granit_top
     13700072: underwear_whiteLace
     13700074: underwear_whiteStriped
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eyes_D
+    second: {fileID: 2100000, guid: cc4d8884b140da248b4a0b025c445924, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LoveGlove_albedo_2K
+    second: {fileID: 2100000, guid: ecefcba948f826849abfaefb5e929e32, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bb_Hoodie_turquoise_mat
+    second: {fileID: 2100000, guid: e723e639e0877384e80501e1aa49f425, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bb_colors_top_bottom_mat
+    second: {fileID: 2100000, guid: 76bad747fa05b1343949be3aee4270ab, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bb_dress_tennis_granit_mat
+    second: {fileID: 2100000, guid: ff3c0495392de37409e1a52dd5d0c979, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bb_female_hair_mat
+    second: {fileID: 2100000, guid: 30ee731d8956af547b9db2063ec4f4bd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bb_female_mat
+    second: {fileID: 2100000, guid: a1dcf79c43ef72540bb92b0142a3034c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bb_female_shoes_tall_mat
+    second: {fileID: 2100000, guid: 9e14389e608cb3641af3bad716cc523c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bb_female_shoes_tall_white
+    second: {fileID: 2100000, guid: d5a2c42af29740640999b29bd09c7b66, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bb_female_skirt_turquoise_mat
+    second: {fileID: 2100000, guid: b4e39d3f2b295b142af907f2acca9b7a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bb_female_sports_underwear_bottoms_mat
+    second: {fileID: 2100000, guid: aec7a81193b48e2419c42f79afeba223, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bb_female_tights_gray_mat
+    second: {fileID: 2100000, guid: 33e1dbdc4fd63de4c8421437eeae1556, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bb_female_tights_purple_mat
+    second: {fileID: 2100000, guid: 5c8dd4adddd9cfd499a8868b3b55ca0d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bb_female_tights_stripe_mat
+    second: {fileID: 2100000, guid: aac318d4cb3f6f3488b5623edd7bf50f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bb_female_tshirt_turquoise_mat
+    second: {fileID: 2100000, guid: 7a7f461f7d97a544199b0ace3cd72f43, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bb_female_underwear_greenPalettes_mat
+    second: {fileID: 2100000, guid: 58bea753d8225b14e813e72dd5d0bea2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bb_female_underwear_purple_mat
+    second: {fileID: 2100000, guid: 81eff01332d723a4698dd17a9d398583, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bb_female_underwear_whiteLace_mat
+    second: {fileID: 2100000, guid: 48961daae8ff9b048b47dc332259812b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bb_female_underwear_whiteStriped_mat
+    second: {fileID: 2100000, guid: bebe1e3d92b123441a5bc0a07ca824ab, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bb_green_tights_mat
+    second: {fileID: 2100000, guid: f3fce46bd24315049a272158960e3381, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bb_jacket_hive_mat
+    second: {fileID: 2100000, guid: fd5d0165e1170db4e9d45fec47b429be, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bb_male_mat
+    second: {fileID: 2100000, guid: cd2a8d903f659b0419dbc43afd583832, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bb_male_shoe_low_white_mat
+    second: {fileID: 2100000, guid: 6a134861ae8aeb54c9ece4f333c6cb90, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bb_shorts_turquoise
+    second: {fileID: 2100000, guid: 2bf5a270bdb45d24ea9561e03e43907a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bb_sportswear_pants_granit_mat
+    second: {fileID: 2100000, guid: f753c02a486420a4e8b1091cf3eeffef, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bb_sportswear_sweater_granit_mat
+    second: {fileID: 2100000, guid: c32dc8f3104d4f24c84bc33d6e561de9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bb_sportswear_top_granit_mat
+    second: {fileID: 2100000, guid: 9f40be1c8f8b8724087de799658bc6df, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bb_sportswear_top_mat
+    second: {fileID: 2100000, guid: 8cd11e7c5a09faa4da22d313ded98089, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bb_swimwear_black_mat
+    second: {fileID: 2100000, guid: b23c58de5b3b25140807e4d62197e483, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bb_tanktop_whiteBlackStraps_mat
+    second: {fileID: 2100000, guid: 9ed3e8b401de1824c842105c5ebeb537, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bb_tanktop_yellow_mat
+    second: {fileID: 2100000, guid: bca784376f8fa6b4f917f3f282b6f4d0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bb_tanktop_zebra_mat
+    second: {fileID: 2100000, guid: b44c0c29283f7bf40aa07f5b3560cdb5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bb_underwear_bra_green_mat
+    second: {fileID: 2100000, guid: 1a37ad49972f35e408840bad641122c5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bb_underwear_bra_purple_mat
+    second: {fileID: 2100000, guid: 0333df4f2966f254faf61e85cca98a7d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bb_underwear_bra_white_mat
+    second: {fileID: 2100000, guid: 200045b4efc2e514d981126244b19cc1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bb_underwear_bra_yellow_mat
+    second: {fileID: 2100000, guid: 400556bd5b9c2d447a8a1d70c005dd2e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bb_underwear_white_granit_mat
+    second: {fileID: 2100000, guid: b08a99e49eab60c4892d2420be9200b0, type: 2}
   materials:
     importMaterials: 1
     materialName: 1
     materialSearch: 2
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
+    resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
-    animationCompression: 1
-    animationRotationError: .5
-    animationPositionError: .5
-    animationScaleError: .5
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
+    extraUserProperties: []
     clipAnimations: []
     isReadable: 1
   meshes:
@@ -366,38 +561,54 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 0
     importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
-    splitTangentsAcrossUV: 1
     normalImportMode: 0
-    tangentImportMode: 1
+    tangentImportMode: 4
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
+    serializedVersion: 2
     human: []
     skeleton: []
-    armTwist: .5
-    foreArmTwist: .5
-    upperLegTwist: .5
-    legTwist: .5
-    armStretch: .0500000007
-    legStretch: .0500000007
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
     feetSpacing: 0
     rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 3
+  humanoidOversampling: 1
   additionalBone: 0
   userData: 
   assetBundleName: 
