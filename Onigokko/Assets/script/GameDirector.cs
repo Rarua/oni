@@ -20,7 +20,7 @@ public class GameDirector : MonoBehaviour
         {
             Data.Instance.score.Add(false);
         }
-        Debug.Log(Data.Instance.score.Count);
+
         for (int i = 0; i < Player.Count; i++)
         {
             oaoa.Add(Player[i].GetComponent<Playercontrora>());
@@ -31,7 +31,6 @@ public class GameDirector : MonoBehaviour
     void Update()
     {
         //Debug.Log(count);
-        Debug.Log(Player.Count);
         if (m_frag&&count >= Player.Count)
         {
             m_fade.GetComponent<ChangeScene_Game>().m_fade = true;
@@ -46,19 +45,27 @@ public class GameDirector : MonoBehaviour
     public void death(int No,int dame)
     {
         No--;
-        Data.Instance.score[No] = false;
-        if (oaoa[No].death(dame * m_dame))
+        if (oaoa[No] != null)
         {
-            count++;
+            Data.Instance.score[No] = false;
+            if (oaoa[No].death(dame * m_dame))
+            {
+                oaoa[No] = null;
+                count++;
+            }
         }
     }
     public void clear(int No)
     {
-        No--;
-        Data.Instance.score[No] = true;
-        if (oaoa[No].clear())
+        if (oaoa[No] != null)
         {
-            count++;
+            No--;
+            Data.Instance.score[No] = true;
+            if (oaoa[No].clear())
+            {
+                oaoa[No] = null;
+                count++;
+            }
         }
         
     }

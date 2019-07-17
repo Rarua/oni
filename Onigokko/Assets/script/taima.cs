@@ -7,6 +7,8 @@ public class taima : MonoBehaviour
 {
     [SerializeField] List<GameObject> taim;
     [SerializeField] float tai = 3.0f;
+    [SerializeField] GameObject director;
+    GameDirector m_director;
     float minit = 0.0f;
     Text[] score_text;
     // Start is called before the first frame update
@@ -17,6 +19,7 @@ public class taima : MonoBehaviour
         {
             score_text[i] = taim[i].GetComponent<Text>();
         }
+        m_director = director.GetComponent<GameDirector>();
     }
 
     // Update is called once per frame
@@ -28,9 +31,24 @@ public class taima : MonoBehaviour
             tai -= 1.0f;
             minit += 60.0f;
         }
-        for (int i=0;i< taim.Count; i++)
+        if (tai < 0)
         {
-            score_text[i].text = tai.ToString("F0")+":"+ minit.ToString("F2");
+            for (int i = 0; i < 4; i++)
+            {
+                Debug.Log(i);
+                m_director.death(i+1, 100);
+            }
+            Debug.Log("dhefa");
+            Destroy(this.gameObject);
+
         }
+        else
+        {
+            for (int i = 0; i < taim.Count; i++)
+            {
+                score_text[i].text = tai.ToString("F0") + ":" + minit.ToString("F2");
+            }
+        }
+
     }
 }

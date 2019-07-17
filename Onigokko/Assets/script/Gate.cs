@@ -40,7 +40,7 @@ public class Gate : MonoBehaviour
             this.GetComponent<BoxCollider>().enabled = false;
             while (kaku <= 90.0f)
             {
-                kaku += 3.0f * Time.deltaTime;
+                kaku += 30.0f * Time.deltaTime;
                 transform.eulerAngles = new Vector3(0, kaku, 0);
                 yield return null;
             }
