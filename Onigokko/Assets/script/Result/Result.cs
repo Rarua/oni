@@ -11,16 +11,15 @@ public class Result : MonoBehaviour
     public GameObject[] m_Canvas = new GameObject[2];
     public GameObject ennsyutu;
     public GameObject camer;
+    public GameObject m_fade;
     private Text[] score_text = new Text[2];
     private List<GameObject> pre = new List<GameObject>();
     int no = 0;
+    bool fade = true;
     // Start is called before the first frame update
     void Start()
     {
-        Data.Instance.score.Add(false);
-        Data.Instance.score.Add(false);
-        Data.Instance.score.Add(false);
-        Data.Instance.score.Add(false);
+        //Data.Instance.score.Add(true);
         var m = oyako.ChildrenSearch.GetChildren(m_Canvas[0]);
         for (int i = 0; i < m.Length; i++)
         {
@@ -90,29 +89,33 @@ public class Result : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        if (no != 0)
+        if (fade)
         {
-            for (int i = 0; i < pre.Count; i++)
+            if (no != 0)
             {
-                pre[i].transform.position = new Vector3(pre[i].transform.position.x, pre[i].transform.position.y, pre[i].transform.position.z + 0.35f);
-
+                for (int i = 0; i < pre.Count; i++)
+                {
+                    pre[i].transform.Translate(Vector3.forward * 0.15f);
+                   //pre[i].transform.position = new Vector3(pre[i].transform.position.x, pre[i].transform.position.y, pre[i].transform.position.z + 0.35f);
+                }
             }
         }
         else
         {
 
+            m_fade.GetComponent<ChangeScene_Game>().m_fade = true;
+            no = 0;
+            fade = true;
         }
     }
     private IEnumerator Tex()
     {
         m_Canvas[0].SetActive(false);
         m_Canvas[1].SetActive(false);
-
-        yield return new WaitForSeconds(4.0f);
+        yield return new WaitForSeconds(6.0f);
         m_Canvas[0].SetActive(true);
         m_Canvas[1].SetActive(true);
-
-
+        yield return new WaitForSeconds(2.0f);
+        fade = false;
     }
 }

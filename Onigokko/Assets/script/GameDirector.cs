@@ -7,19 +7,20 @@ using UnityEngine.SceneManagement;
 public class GameDirector : MonoBehaviour
 {
     [SerializeField] List<GameObject> Player;
+    [SerializeField] GameObject m_fade;
     List<Playercontrora> oaoa = new List<Playercontrora>();
-    [SerializeField] int scene;
+    bool m_frag = true;
     int m_dame = 1;
     int count = 0;
     // Start is called before the first frame update
     void Start()
     {
         Data.Instance.score.Clear();
-        Debug.Log(Data.Instance.score.Count);
-        for(int i=0;i< Player.Count;i++)
+        for(int i=0;i < Player.Count;i++)
         {
             Data.Instance.score.Add(false);
         }
+
         for (int i = 0; i < Player.Count; i++)
         {
             oaoa.Add(Player[i].GetComponent<Playercontrora>());
@@ -29,9 +30,11 @@ public class GameDirector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(count >= Player.Count+1)
+        //Debug.Log(count);
+        if (m_frag&&count >= Player.Count)
         {
-            SceneManager.LoadScene(scene);
+            m_fade.GetComponent<ChangeScene_Game>().m_fade = true;
+            m_frag = false;
         }
 
     }
@@ -42,17 +45,28 @@ public class GameDirector : MonoBehaviour
     public void death(int No,int dame)
     {
         No--;
-        Debug.Log("jdkeanfk2");
-        Data.Instance.score[No] = false;
-        oaoa[No].death(dame * m_dame);
-        count++;
+        if (oaoa[No] != null)
+        {
+            Data.Instance.score[No] = false;
+            if (oaoa[No].death(dame * m_dame))
+            {
+                oaoa[No] = null;
+                count++;
+            }
+        }
     }
     public void clear(int No)
     {
-        No--;
-        Debug.Log("jdkeanfk2213");
-        Data.Instance.score[No] = true;
-        oaoa[No].clear();
-        count++;
+        if (oaoa[No] != null)
+        {
+            No--;
+            Data.Instance.score[No] = true;
+            if (oaoa[No].clear())
+            {
+                oaoa[No] = null;
+                count++;
+            }
+        }
+        
     }
 }

@@ -11,6 +11,7 @@ public class Playercontrora : MonoBehaviour
     [SerializeField] GameObject GameAbutton;
     [SerializeField] int HP = 2;
     botun m_Abutton;
+    public int m_Keynum = 0;
     public float KeyOpen = 3.0f;
     public int No = 1;
     private IEnumerator coroutine;
@@ -23,6 +24,7 @@ public class Playercontrora : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(m_Keynum);
     }
     void OnTriggerEnter(Collider t)
     {
@@ -83,6 +85,7 @@ public class Playercontrora : MonoBehaviour
                         }
                         Debug.Log("終わり！！！閉廷！！！！");
                         Gate.GateOpen();
+                        m_Keynum--;
                         Destroy(nm.gameObject);
                         m_Abutton.OFF();
                     }
@@ -104,20 +107,22 @@ public class Playercontrora : MonoBehaviour
             m_Abutton.OFF();
         }
     }
-    public void death(int dame)
+    public bool death(int dame)
     {
         HP -= dame;
         if (HP <= 0)
         {
             GameOver.SetActive(true);
             delete();
+            return true;
         }
+        return false;
     }
-    public void clear()
+    public bool clear()
     {
-        Debug.Log("五ーーーーーる");
         GameClear.SetActive(true);
         delete();
+        return true;
     }
     void delete()
     {
@@ -131,7 +136,7 @@ public class Playercontrora : MonoBehaviour
     {
         var Childrens = oyako.ChildrenSearch.GetChildren(this.gameObject);
         var manager = GameObject.FindWithTag("KeyManager");
-        int j = 00;
+        int j = 0;
         List<Keycontrotry> ma = new List<Keycontrotry>();
         for (int i = 0; i < Childrens.Length; i++)
         {
@@ -142,8 +147,6 @@ public class Playercontrora : MonoBehaviour
                 //Destroy(Childrens[i]);
             }
         }
-        Debug.Log(ma);
-
         manager.GetComponent<KeyManager>().KeySpawn(ma,j);
 
     }

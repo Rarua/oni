@@ -49,7 +49,6 @@ public class Fade : MonoBehaviour
 
 	IEnumerator FadeoutCoroutine (float time, System.Action action)
 	{
-        Debug.Log(cutoutRange);
 		float endTime = time * (cutoutRange);
 
 		var endFrame = new WaitForEndOfFrame ();

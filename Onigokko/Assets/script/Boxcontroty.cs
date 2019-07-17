@@ -43,7 +43,7 @@ public class Boxcontroty : MonoBehaviour
         {
             StartCoroutine(OpenBox());
         }
-            this.GetComponent<CapsuleCollider>().enabled = false;
+        this.GetComponent<CapsuleCollider>().enabled = false;
     }
     private IEnumerator OpenBox()
     {

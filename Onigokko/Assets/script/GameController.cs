@@ -5,8 +5,8 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     [SerializeField, Range(1, 8)]
-    private int m_useDisplayCount = 4;
-
+    private int m_useDisplayCount = 2;
+    public GameObject m_Fade;
     private void Awake()
     {
         int count = Mathf.Min(Display.displays.Length, m_useDisplayCount);
@@ -18,7 +18,13 @@ public class GameController : MonoBehaviour
     }
     void Start()
     {
-       // Awake();
+    }
+    void Update()
+    {
+        if(Input.anyKey)
+        {
+            m_Fade.GetComponent<ChangeScene_Game>().m_fade = true;
+        }
     }
 } // class GameController
 

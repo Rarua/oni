@@ -22,16 +22,19 @@ public class PlayerCamer : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        GamepadState keyState = GamePad.GetState(PlayerNo, false);
-        this.transform.rotation = SturtObject.transform.rotation;
-        var k  = this.transform.TransformDirection(pos);
-        //前方向に回転加算
-        var posn = SturtObject.transform.position;
-        this.transform.position = new Vector3(k.x+ posn.x, k.y+ posn.y, k.z+ posn.z);
-        //上下回転
-        Axis += keyState.rightStickAxis.y;
-        Axis = Mathf.Min(Axis, 20.0f);
-        Axis = Mathf.Max(Axis, -20.0f);
-        this.transform.Rotate(Axis, 0.0f, 0.0f);
+        if (SturtObject != null)
+        {
+            GamepadState keyState = GamePad.GetState(PlayerNo, false);
+            this.transform.rotation = SturtObject.transform.rotation;
+            var k = this.transform.TransformDirection(pos);
+            //前方向に回転加算
+            var posn = SturtObject.transform.position;
+            this.transform.position = new Vector3(k.x + posn.x, k.y + posn.y, k.z + posn.z);
+            //上下回転
+            Axis += keyState.rightStickAxis.y;
+            Axis = Mathf.Min(Axis, 20.0f);
+            Axis = Mathf.Max(Axis, -20.0f);
+            this.transform.Rotate(Axis, 0.0f, 0.0f);
+        }
     }
 }

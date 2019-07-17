@@ -6,6 +6,7 @@ public class ResultAnim : MonoBehaviour
 {
     public Animator TabAnimController;
     public GameObject m_Object;
+    bool m_furag = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,15 +16,18 @@ public class ResultAnim : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (m_furag)
+        {
+            transform.Translate(Vector3.forward * 0.05f);
+        }
     }
     private IEnumerator anim()
     {
-        var ma = StartCoroutine(WaitAnimationEnd("atack1"));
+        var ma = StartCoroutine(WaitAnimationEnd("atack18"));
         yield return ma;
         TabAnimController.SetTrigger("idel");
-        Debug.Log(m_Object.GetComponent<Rigidbody>().isKinematic);
         m_Object.GetComponent<Rigidbody>().isKinematic = false;
+        m_furag = false;
     }
     private IEnumerator WaitAnimationEnd(string animatorName)
     {
