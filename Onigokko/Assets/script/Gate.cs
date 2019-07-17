@@ -18,7 +18,6 @@ public class Gate : MonoBehaviour
     void Start()
     {
         ms = manager.GetComponent<GameDirector>();
-        Debug.Log(sprite.GetComponent<Gatesprite>());
         sp = sprite.GetComponent<Gatesprite>();
 
     }

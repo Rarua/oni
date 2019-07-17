@@ -27,7 +27,7 @@ namespace GamepadInput
         }
         public static bool GetButtonDown(Button button, Index controlIndex)
         {
-            //KeyCode code = GetKeycode(button, controlIndex);
+            KeyCode code = GetKeycode(button, controlIndex);
             return XCI.GetButtonDown((XboxButton)button, (XboxController)controlIndex);
         }
 

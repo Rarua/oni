@@ -104,20 +104,22 @@ public class Playercontrora : MonoBehaviour
             m_Abutton.OFF();
         }
     }
-    public void death(int dame)
+    public bool death(int dame)
     {
         HP -= dame;
         if (HP <= 0)
         {
             GameOver.SetActive(true);
             delete();
+            return true;
         }
+        return false;
     }
-    public void clear()
+    public bool clear()
     {
-        Debug.Log("五ーーーーーる");
         GameClear.SetActive(true);
         delete();
+        return true;
     }
     void delete()
     {
