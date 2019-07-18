@@ -118,16 +118,27 @@ public class KeyManager : MonoBehaviour
             BKeylist.Remove(takara);
         }
     }
+    public void Bomb1(Gate.Gatetype No, Boxcontroty takara)
+    {
+        if (No == Gate.Gatetype.One)
+        {
+            AspoonNo[(int)AspoonNo[AKeylist.IndexOf(takara)]] = 0;
+        }
+        else
+        {
+            BspoonNo[(int)BspoonNo[BKeylist.IndexOf(takara)]] = 0;
+        }
+    }
     public void KeySpawn(List<Keycontrotry> No,int kosuu)
     {
-        for (int i = 0; i < AspoonNo.Count; i++)
-        {
-            AspoonNo[i] = 0;
-        }
-        for (int i = 0; i < BspoonNo.Count; i++)
-        {
-            BspoonNo[i] = 0;
-        }
+        //for (int i = 0; i < AspoonNo.Count; i++)
+        //{
+        //    AspoonNo[i] = 0;
+        //}
+        //for (int i = 0; i < BspoonNo.Count; i++)
+        //{
+        //    BspoonNo[i] = 0;
+        //}
         for (int i = 0; i < kosuu; i++)
         {
             if (No[i].no == Gate.Gatetype.One)

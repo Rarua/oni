@@ -10,6 +10,7 @@ public class Playercontrora : MonoBehaviour
     [SerializeField] GameObject GameClear;
     [SerializeField] GameObject GameAbutton;
     [SerializeField] int HP = 2;
+    private Animator animator;
     botun m_Abutton;
     public int m_Keynum = 0;
     public float KeyOpen = 200.0f;
@@ -18,13 +19,14 @@ public class Playercontrora : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
         m_Abutton = GameAbutton.GetComponent<botun>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(m_Keynum);
+
     }
     void OnTriggerEnter(Collider t)
     {
@@ -44,7 +46,7 @@ public class Playercontrora : MonoBehaviour
         while (true)
         {
             {
-                Debug.Log("nana");
+
                 GameAbutton.SetActive(true);
                 var m = Box.GetComponent<Boxcontroty>();
                 m_Abutton.Boxopentime(m.GetTaim());
@@ -54,7 +56,7 @@ public class Playercontrora : MonoBehaviour
                     m.SetTaim(m_Abutton.gauge());
                     yield return null;
                 }
-                Debug.Log("終わり！！！閉廷！！！！");
+
                 if (m.Getfura())
                 {
                     m.BoxOpen(this.transform);
@@ -122,17 +124,23 @@ public class Playercontrora : MonoBehaviour
     public bool death(int dame)
     {
         HP -= dame;
-        if (HP <= 0)
+        if (HP <= 0&& HP > -10000000)
         {
+           // Debug.Log("atata");
+          //  StartCoroutine(anim());
+           // animator.SetTrigger("Die");
             GameOver.SetActive(true);
             delete();
+            HP = -10000000;
             return true;
+            
         }
         return false;
     }
     public bool clear()
     {
         GameClear.SetActive(true);
+        KeyDrop();
         delete();
         return true;
     }
@@ -144,12 +152,36 @@ public class Playercontrora : MonoBehaviour
         Destroy(this.gameObject);
 
     }
+    private IEnumerator anim()
+    {
+        //yield return new WaitForSeconds(2.0f);
+        //var ma = StartCoroutine(WaitAnimationEnd("idle"));
+        yield return null;
+    }
+    private IEnumerator WaitAnimationEnd(string animatorName)
+    {
+        bool finish = false;
+        while (!finish)
+        {
+            AnimatorStateInfo nowState = animator.GetCurrentAnimatorStateInfo(0);
+            if (nowState.IsName(animatorName))
+            {
+                finish = true;
+            }
+            else
+            {
+                yield return new WaitForSeconds(0.1f);
+            }
+        }
+    }
     void KeyDrop()
     {
         var Childrens = oyako.ChildrenSearch.GetChildren(this.gameObject);
         var manager = GameObject.FindWithTag("KeyManager");
         int j = 0;
+        Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!!");
         List<Keycontrotry> ma = new List<Keycontrotry>();
+
         for (int i = 0; i < Childrens.Length; i++)
         {
             if (Childrens[i].tag == "key")
@@ -159,6 +191,7 @@ public class Playercontrora : MonoBehaviour
                 //Destroy(Childrens[i]);
             }
         }
+        Debug.Log(ma.Count);
         manager.GetComponent<KeyManager>().KeySpawn(ma,j);
 
     }

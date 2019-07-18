@@ -9,6 +9,7 @@ public class Boxcontroty : MonoBehaviour
     public GameObject efecto;
     public Gate.Gatetype no;
     public Sprite aka;
+    private Animator animator;
     private Keycontrotry kajin = null;
     private float taim = 0.0f;
     private bool m_fura = true;
@@ -16,6 +17,7 @@ public class Boxcontroty : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
         m_SpriteRenderer = sprit.GetComponent<SpriteRenderer>();
     }
 
@@ -29,23 +31,27 @@ public class Boxcontroty : MonoBehaviour
     }
     public void sporn()
     {
-
+        Debug.Log("??????????????????");
         kajin = (Instantiate(kaji, this.transform.position, Quaternion.identity) as GameObject).GetComponent<Keycontrotry>();
         kajin.transform.parent = this.transform;
         kajin.SetNo(no);
-        this.GetComponent<CapsuleCollider>().enabled = true;
         kajin.gameObject.SetActive(true);
+        this.GetComponent<CapsuleCollider>().enabled = true;
+        taim = 0.0f;
+        animator.Play("CloseAnime");
     }
     public void BoxOpen(Transform player)
     {
         if (kajin)
         {
             kajin.GetKey(player);
+            this.transform.parent.GetComponent<KeyManager>().Bomb1(no, this);
         }
         else
         {
             StartCoroutine(OpenBox());
         }
+        animator.Play("Take 001");
         taim = 0.0f;
         m_fura = false;
         this.GetComponent<CapsuleCollider>().enabled = false;

@@ -13,10 +13,15 @@ public class Move : MonoBehaviour
     sutamina m_sutamina;
     GamepadState keyState;
     Transform MyTransform;
+    private Animator animator;
     CharacterController Controller;
     //Start is called before the first frame update
     void Start()
     {
+
+
+
+        animator = GetComponent<Animator>();
         Controller = this.GetComponent<CharacterController>();
         MyTransform = this.transform;
         if (sutamina)
@@ -33,23 +38,29 @@ public class Move : MonoBehaviour
 
         //移動処理
         var pos = new Vector3(keyState.LeftStickAxis.x, 0, keyState.LeftStickAxis.y);
-        pos.Normalize();
-        pos = MyTransform.TransformDirection(pos);
-        pos.y -= 9.8f * 100.0f;
+
         float speed = 1.0f;
         if (m_sutamina)
         {
+            if (pos.x != 0.0f || pos.y != 0.0f || pos.z != 0.0f)
+            {
+                animator.SetBool("Walk", true);
+            }
+            else
+            {
+               animator.SetBool("Walk", false);
+            }
             if (keyState.B)
             {
-                Debug.Log("babababbababababababbababa");
-
                 if (m_sutamina.gauge1())
                 {
                     speed *= 2.0f;
                 }
-
             }
         }
+        pos.Normalize();
+        pos = MyTransform.TransformDirection(pos);
+        pos.y -= 9.8f * 100.0f;
         Controller.Move(pos * Walkspeed* speed);
         //回転処理
         MyTransform.Rotate(0.0f, keyState.rightStickAxis.x * turnspeed, 0.0f, Space.World);
