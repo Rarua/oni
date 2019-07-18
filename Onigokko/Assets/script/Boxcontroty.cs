@@ -6,6 +6,7 @@ public class Boxcontroty : MonoBehaviour
 {
     public GameObject kaji;
     public GameObject sprit;
+    public GameObject efecto;
     public Gate.Gatetype no;
     public Sprite aka;
     private Keycontrotry kajin = null;
@@ -66,6 +67,7 @@ public class Boxcontroty : MonoBehaviour
         this.transform.parent.GetComponent<KeyManager>().Bomb(no, this);
         m_SpriteRenderer.sprite = aka;
         //エフェクト
+        efecto.SetActive(true);
         yield return new WaitForSeconds(6.0f);
         this.gameObject.SetActive(false);
         yield return null;

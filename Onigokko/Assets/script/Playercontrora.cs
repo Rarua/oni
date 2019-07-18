@@ -89,6 +89,8 @@ public class Playercontrora : MonoBehaviour
                         Debug.Log("Aプッシュ！！");
                         while (m_Abutton.gauge() < KeyOpen)
                         {
+                            m_Abutton.Boxopentime(Gate.GetTaim());
+                            Gate.SetTaim(m_Abutton.gauge());
                             yield return null;
                         }
                         Debug.Log("終わり！！！閉廷！！！！");
