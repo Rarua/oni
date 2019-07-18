@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Playerpoint: {fileID: 0}
+  m_sutamina: 1
   UIobj: {fileID: 4664286744900017111}
 --- !u!1 &3992045141347697857
 GameObject:

@@ -1627,7 +1627,7 @@ PrefabInstance:
     - target: {fileID: 3426066337721540097, guid: 2224a87ba0b556a48ae9c2dcdeaade38,
         type: 3}
       propertyPath: scene
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3426066337721540097, guid: 2224a87ba0b556a48ae9c2dcdeaade38,
         type: 3}
@@ -1912,7 +1912,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0a9999184c84a346873730753c1c9e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerNo: 5
+  PlayerNo: 4
   GameAbutton:
   - {fileID: 1894702772}
   - {fileID: 1098427030}
