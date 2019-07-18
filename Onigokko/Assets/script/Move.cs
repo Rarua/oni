@@ -34,22 +34,24 @@ public class Move : MonoBehaviour
     void Update()
     {
         keyState = GamePad.GetState(PlayerNo, false);
+
         //パッドの入力の取得
 
         //移動処理
         var pos = new Vector3(keyState.LeftStickAxis.x, 0, keyState.LeftStickAxis.y);
 
         float speed = 1.0f;
+        if (pos.x != 0.0f || pos.y != 0.0f || pos.z != 0.0f)
+        {
+            animator.SetBool("Walk", true);
+        }
+        else
+        {
+            animator.SetBool("Walk", false);
+        }
         if (m_sutamina)
         {
-            if (pos.x != 0.0f || pos.y != 0.0f || pos.z != 0.0f)
-            {
-                animator.SetBool("Walk", true);
-            }
-            else
-            {
-               animator.SetBool("Walk", false);
-            }
+
             if (keyState.B)
             {
                 if (m_sutamina.gauge1())
@@ -57,6 +59,10 @@ public class Move : MonoBehaviour
                     speed *= 2.0f;
                 }
             }
+        }
+        else
+        {
+            Debug.Log(keyState);
         }
         pos.Normalize();
         pos = MyTransform.TransformDirection(pos);

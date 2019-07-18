@@ -22,8 +22,7 @@ public class oni : MonoBehaviour
     void Update()
     {
         var k = m_move.GetkeyState();
-
-       // Debug.Log(attak);
+        //GamePad.GetState(PlayerNo, false);
         if (k != null)
         {
             if (k.A && attak == true)

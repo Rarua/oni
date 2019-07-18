@@ -13,11 +13,14 @@ public class Boxcontroty : MonoBehaviour
     private Keycontrotry kajin = null;
     private float taim = 0.0f;
     private bool m_fura = true;
+    public AudioClip[] SE = new AudioClip[2];
     private SpriteRenderer m_SpriteRenderer;
+    AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
         m_SpriteRenderer = sprit.GetComponent<SpriteRenderer>();
     }
 
@@ -45,7 +48,8 @@ public class Boxcontroty : MonoBehaviour
         if (kajin)
         {
             var n = oyako.ChildrenSearch.GetChildren(this.gameObject);
-            for(int i=0;i<n.Length;i++)
+            audioSource.PlayOneShot(SE[0]);
+            for (int i=0;i<n.Length;i++)
             {
                 if(n[i].GetComponent<Keycontrotry>())
                 {
@@ -56,6 +60,7 @@ public class Boxcontroty : MonoBehaviour
         }
         else
         {
+            audioSource.PlayOneShot(SE[1]);
             StartCoroutine(OpenBox());
         }
         animator.Play("Take 001");
@@ -81,7 +86,7 @@ public class Boxcontroty : MonoBehaviour
         m_SpriteRenderer.sprite = aka;
         //エフェクト
         efecto.SetActive(true);
-        yield return new WaitForSeconds(6.0f);
+        yield return new WaitForSeconds(4.5f);
         this.gameObject.SetActive(false);
         yield return null;
     }

@@ -11,6 +11,7 @@ public class Gate : MonoBehaviour
     public Gatetype GateNo;
     public GameObject manager;
     public GameObject sprite;
+    public GameObject[] kusari = new GameObject[2];
     private float taim = 0.0f;
     GameDirector ms;
     Gatesprite sp;
@@ -30,11 +31,17 @@ public class Gate : MonoBehaviour
     public void GateOpen()
     {
         StartCoroutine(Open());
+        taim = 0.0f;
     }
     private IEnumerator Open()
     {
         Keynum++;
-        taim = 0.0f;
+        var pos = kusari[Keynum - 1].transform;
+        while (pos.position.y >= -10.0f)
+        {
+            pos.position = new Vector3(pos.position.x, pos.position.y - 1.0f, pos.position.z);
+            yield return null;
+        }
         if (Keynum >= 2)
         {
             float kaku = 0.0f;

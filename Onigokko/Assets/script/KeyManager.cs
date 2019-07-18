@@ -165,10 +165,9 @@ public class KeyManager : MonoBehaviour
         int bagu = 0;
         do
         {
-            SpawnNo = Random.Range(0, an.Count);
+            SpawnNo = Random.Range(0, Keylist.Count);
             bagu++;
         } while (an[SpawnNo] != 0 && bagu <= 10000);
-
         Keylist[SpawnNo].GetComponent<Boxcontroty>().sporn();
         an[SpawnNo] = 1;
     }

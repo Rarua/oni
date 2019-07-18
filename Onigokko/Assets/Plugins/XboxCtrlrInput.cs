@@ -966,7 +966,7 @@ namespace XboxCtrlrInput
 					XInputUpdateAllStates();
 				}
 				
-				for(int i = 0; i < 4; i++)
+				for(int i = 0; i < 5; i++)
 				{
 					if(xInputCtrlrs[i].IsConnected)
 					{
@@ -1152,7 +1152,7 @@ namespace XboxCtrlrInput
 		
 		private static bool IsControllerNumberValid(int ctrlrNum)
 		{
-			if(ctrlrNum > 0 && ctrlrNum <= 5)
+			if(ctrlrNum > 0 && ctrlrNum <= 4)
 			{
 				return true;
 			}
@@ -1655,14 +1655,14 @@ namespace XboxCtrlrInput
                 // the previous states and current states are the same.
                 // This is needed to prevent errors where GetButtonUp will trigger unexpectledly
 
-                for (int i = 0; i < 4; i++)
+                for (int i = 0; i < 5; i++)
                 {
                     PlayerIndex plyNum = (PlayerIndex)i;
                     xInputCtrlrsPrev[i] = xInputCtrlrs[i];
                     xInputCtrlrs[i] = GamePad.GetState(plyNum, XCI.WindowsDeadzoneMethod);
                 }
 
-                for (int i = 0; i < 4; i++)
+                for (int i = 0; i < 5; i++)
                 {
                     PlayerIndex plyNum = (PlayerIndex)i;
                     xInputCtrlrsPrev[i] = xInputCtrlrs[i];
@@ -1704,7 +1704,7 @@ namespace XboxCtrlrInput
 		{
 			if(xiUpdateAlreadyCalled) return;
 			
-			for(int i = 0; i < 4; i++)
+			for(int i = 0; i < 5; i++)
 			{
 				PlayerIndex plyNum = (PlayerIndex) i;
 				xInputCtrlrsPrev[i] = xInputCtrlrs[i];

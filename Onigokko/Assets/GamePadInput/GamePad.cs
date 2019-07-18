@@ -39,7 +39,7 @@ namespace GamepadInput
 
         public static bool GetButton(Button button, Index controlIndex)
         {
-           // KeyCode code = GetKeycode(button, controlIndex);
+            KeyCode code = GetKeycode(button, controlIndex);
             return XCI.GetButton((XboxButton)button, (XboxController)controlIndex);
         }
 
@@ -230,32 +230,67 @@ namespace GamepadInput
         public static GamepadState GetState(Index controlIndex, bool raw = false)
         {
             GamepadState state = new GamepadState();
+            if (Index.Five != controlIndex)
+            {
 
-            state.A = GetButton(Button.A, controlIndex);
-            state.B = GetButton(Button.B, controlIndex);
-            state.Y = GetButton(Button.Y, controlIndex);
-            state.X = GetButton(Button.X, controlIndex);
+                state.A = GetButton(Button.A, controlIndex);
+                state.B = GetButton(Button.B, controlIndex);
+                state.Y = GetButton(Button.Y, controlIndex);
+                state.X = GetButton(Button.X, controlIndex);
 
-            state.RightShoulder = GetButton(Button.RightShoulder, controlIndex);
-            state.LeftShoulder = GetButton(Button.LeftShoulder, controlIndex);
-            state.RightStick = GetButton(Button.RightStick, controlIndex);
-            state.LeftStick = GetButton(Button.LeftStick, controlIndex);
+                state.RightShoulder = GetButton(Button.RightShoulder, controlIndex);
+                state.LeftShoulder = GetButton(Button.LeftShoulder, controlIndex);
+                state.RightStick = GetButton(Button.RightStick, controlIndex);
+                state.LeftStick = GetButton(Button.LeftStick, controlIndex);
 
-            state.Start = GetButton(Button.Start, controlIndex);
-            state.Back = GetButton(Button.Back, controlIndex);
+                state.Start = GetButton(Button.Start, controlIndex);
+                state.Back = GetButton(Button.Back, controlIndex);
 
-            state.LeftStickAxis = GetAxis(Axis.LeftStick, controlIndex, raw);
-            state.rightStickAxis = GetAxis(Axis.RightStick, controlIndex, raw);
-            state.dPadAxis = GetAxis(Axis.Dpad, controlIndex, raw);
+                state.LeftStickAxis = GetAxis(Axis.LeftStick, controlIndex, raw);
+                state.rightStickAxis = GetAxis(Axis.RightStick, controlIndex, raw);
+                state.dPadAxis = GetAxis(Axis.Dpad, controlIndex, raw);
 
-            state.Left = (state.dPadAxis.x < 0);
-            state.Right = (state.dPadAxis.x > 0);
-            state.Up = (state.dPadAxis.y > 0);
-            state.Down = (state.dPadAxis.y < 0);
+                state.Left = (state.dPadAxis.x < 0);
+                state.Right = (state.dPadAxis.x > 0);
+                state.Up = (state.dPadAxis.y > 0);
+                state.Down = (state.dPadAxis.y < 0);
 
-            state.LeftTrigger = GetTrigger(Trigger.LeftTrigger, controlIndex, raw);
-            state.RightTrigger = GetTrigger(Trigger.RightTrigger, controlIndex, raw);
+                state.LeftTrigger = GetTrigger(Trigger.LeftTrigger, controlIndex, raw);
+                state.RightTrigger = GetTrigger(Trigger.RightTrigger, controlIndex, raw);
 
+            }
+            else
+            {
+                Debug.Log("frjeahg");
+                state.A = Input.GetButtonDown("Abotan555");
+                state.B = false;
+                state.Y = false;
+                state.X = false;
+
+                state.RightShoulder = false;
+                state.LeftShoulder = false;
+                state.RightStick = false;
+                state.LeftStick = false;
+
+                state.Start = false;
+                state.Back = false;
+
+                state.LeftStickAxis = new Vector2(Input.GetAxis("XboxAxisXJoy5"), Input.GetAxis("XboxAxisYJoy5") * -1.0f);
+                state.rightStickAxis = new Vector2(Input.GetAxis("XboxAxis4Joy5"), Input.GetAxis("XboxAxis5Joy5"));
+                state.dPadAxis = new Vector2(0.0f, 0.0f);
+
+                state.Left = false;
+
+                state.Right = false;
+
+                state.Up  = false;
+
+                state.Down  = false;
+
+
+                state.LeftTrigger = 0.0f;
+                state.RightTrigger = 0.0f;
+            }
             return state;
         }
 

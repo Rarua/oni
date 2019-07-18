@@ -57,9 +57,9 @@ public class GameDirector : MonoBehaviour
     }
     public void clear(int No)
     {
+            No--;
         if (oaoa[No] != null)
         {
-            No--;
             Data.Instance.score[No] = true;
             if (oaoa[No].clear())
             {

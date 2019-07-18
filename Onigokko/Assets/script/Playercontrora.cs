@@ -76,11 +76,9 @@ public class Playercontrora : MonoBehaviour
             var ma = oyako.ChildrenSearch.GetChildren(this.gameObject);
             for (int i = 0; i < ma.Length; i++)
             {
-                Debug.Log("Aプッシュ！！");
                 var nm = ma[i].GetComponent<Keycontrotry>();
                 if (nm)
                 {
-                    Debug.Log("Aプッシュ！！");
                     //1つ以上鍵がある
                     //ぼたんを押すと
 
