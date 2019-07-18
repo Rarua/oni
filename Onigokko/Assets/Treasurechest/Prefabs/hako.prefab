@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5676138617881103506}
   m_Layer: 0
   m_Name: hako
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 6205939946560876694}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.3100482, y: 0.5095, z: -1.3065691}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6205939946561036822}
   - {fileID: 6205939946561036818}
@@ -84,8 +84,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kaji: {fileID: 170560, guid: cc5de5e674870ca479a40105f80555ad, type: 3}
-  sprit: {fileID: 0}
-  efecto: {fileID: 0}
+  sprit: {fileID: 162177943562840845}
+  efecto: {fileID: 683974634043615086}
   no: 0
   aka: {fileID: 21300000, guid: b43dbbe26a4fb9c478a48ea0dbfce427, type: 3}
 --- !u!136 &5676138617881103506
@@ -13731,6 +13731,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ad1f20afd7f7bf46bbb43170ebdc33d, type: 3}
+--- !u!1 &162177943562840845 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 749520459354576468, guid: 2ad1f20afd7f7bf46bbb43170ebdc33d,
+    type: 3}
+  m_PrefabInstance: {fileID: 587437280092814681}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &463543735529861262 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1029118188775640535, guid: 2ad1f20afd7f7bf46bbb43170ebdc33d,
@@ -13747,6 +13753,10 @@ PrefabInstance:
     - target: {fileID: 100002, guid: 002c8e66c11fe4048a8c3a08b7f0fe74, type: 3}
       propertyPath: m_Name
       value: WFX_Fire Natural Broad (Black Smoke)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 002c8e66c11fe4048a8c3a08b7f0fe74, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 002c8e66c11fe4048a8c3a08b7f0fe74, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13806,6 +13816,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 002c8e66c11fe4048a8c3a08b7f0fe74, type: 3}
+--- !u!1 &683974634043615086 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100002, guid: 002c8e66c11fe4048a8c3a08b7f0fe74,
+    type: 3}
+  m_PrefabInstance: {fileID: 683974634043711948}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &683974634043587406 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: 002c8e66c11fe4048a8c3a08b7f0fe74,
