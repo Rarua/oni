@@ -8,10 +8,11 @@ public class botun : MonoBehaviour
     [SerializeField] GameObject Playerpoint;
     [SerializeField] GamePad.Button button;
     //fillAmount
-    float opentaim;
+    float opentaim = 200.0f;
     Move m_move;
     public Image UIobj;
     float time = 0.0f;
+    float m_time = 0.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,7 +38,7 @@ public class botun : MonoBehaviour
         if(botan)
         {
             time += Time.deltaTime;
-            UIobj.fillAmount = time / opentaim;
+            m_time = Time.deltaTime;
             if (time>= opentaim)
             {
                 time = opentaim;
@@ -45,13 +46,19 @@ public class botun : MonoBehaviour
         }
         else
         {
-            Debug.Log("ばかやろーーーー");
-            UIobj.fillAmount = 0.0f;
-            time = 0.0f;
+            m_time = 0.0f;
         }
+
+    }
+    public void Boxopentime(float Time)
+    {
+        time = Time;
+        time += m_time;
+        UIobj.fillAmount = time / opentaim;
     }
     public float gauge()
     {
+        //UIobj.fillAmount = time / opentaim;
         return time;
     }
     public void OFF()

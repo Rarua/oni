@@ -11,6 +11,7 @@ public class Gate : MonoBehaviour
     public Gatetype GateNo;
     public GameObject manager;
     public GameObject sprite;
+    private float taim = 0.0f;
     GameDirector ms;
     Gatesprite sp;
     int Keynum = 0;
@@ -33,6 +34,7 @@ public class Gate : MonoBehaviour
     private IEnumerator Open()
     {
         Keynum++;
+        taim = 0.0f;
         if (Keynum >= 2)
         {
             float kaku = 0.0f;
@@ -49,5 +51,13 @@ public class Gate : MonoBehaviour
         }
         yield break;
         // コルーチンの処理  
+    }
+    public void SetTaim(float Taim)
+    {
+        taim = Taim;
+    }
+    public float GetTaim()
+    {
+        return taim;
     }
 }

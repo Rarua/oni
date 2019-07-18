@@ -46,7 +46,7 @@ public class taima : MonoBehaviour
         {
             for (int i = 0; i < taim.Count; i++)
             {
-                score_text[i].text = tai.ToString("F0") + ":" + minit.ToString("F2");
+                score_text[i].text = tai.ToString("F0") + ":" + minit.ToString("F02");
             }
         }
 

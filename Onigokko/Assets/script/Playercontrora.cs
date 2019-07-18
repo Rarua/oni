@@ -12,7 +12,7 @@ public class Playercontrora : MonoBehaviour
     [SerializeField] int HP = 2;
     botun m_Abutton;
     public int m_Keynum = 0;
-    public float KeyOpen = 3.0f;
+    public float KeyOpen = 200.0f;
     public int No = 1;
     private IEnumerator coroutine;
     // Start is called before the first frame update
@@ -46,12 +46,19 @@ public class Playercontrora : MonoBehaviour
             {
                 Debug.Log("nana");
                 GameAbutton.SetActive(true);
-                while (m_Abutton.gauge() < 3.0f)
+                var m = Box.GetComponent<Boxcontroty>();
+                m_Abutton.Boxopentime(m.GetTaim());
+                while (m_Abutton.gauge() < KeyOpen&& m.Getfura())
                 {
+                    m_Abutton.Boxopentime(m.GetTaim());
+                    m.SetTaim(m_Abutton.gauge());
                     yield return null;
                 }
                 Debug.Log("終わり！！！閉廷！！！！");
-                Box.GetComponent<Boxcontroty>().BoxOpen(this.transform);
+                if (m.Getfura())
+                {
+                    m.BoxOpen(this.transform);
+                }
                 m_Abutton.OFF();
                 break;
             }
@@ -78,8 +85,9 @@ public class Playercontrora : MonoBehaviour
                     if (Gate.GateNo == nm.no)
                     {
                         GameAbutton.SetActive(true);
+                        m_Abutton.Boxopentime(Gate.GetTaim());
                         Debug.Log("Aプッシュ！！");
-                        while (m_Abutton.gauge() < 3.0f)
+                        while (m_Abutton.gauge() < KeyOpen)
                         {
                             yield return null;
                         }
@@ -99,11 +107,13 @@ public class Playercontrora : MonoBehaviour
         if (t.gameObject.tag == "Gate")
         {
             StopCoroutine(coroutine);
+            t.gameObject.GetComponent<Gate>().SetTaim(m_Abutton.gauge());
             m_Abutton.OFF();
         }
         if (t.gameObject.tag == "Box")
         {
             StopCoroutine(coroutine);
+            t.gameObject.GetComponent<Boxcontroty>().SetTaim(m_Abutton.gauge());
             m_Abutton.OFF();
         }
     }

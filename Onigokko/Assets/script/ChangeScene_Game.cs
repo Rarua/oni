@@ -10,14 +10,8 @@ public class ChangeScene_Game : MonoBehaviour
     [SerializeField] GameObject[] m_Fade = new GameObject[2];
     Fade[] fade=new Fade[2];
     // Start is called before the first frame update
-    public static ChangeScene_Game Instance
-    {
-        get; private set;
-    }
     void Awake()
     {
-        Debug.Log(1231312131111113);
-        Instance = this;
         for (int i = 0; i < m_Fade.Length; i++)
         {
             fade[i] = m_Fade[i].GetComponent<Fade>();

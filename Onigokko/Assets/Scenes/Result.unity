@@ -396,10 +396,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player:
-  - {fileID: 7794102356658630743, guid: 1b2f58d52b3ad9c4fb79925385fdbe05, type: 3}
-  - {fileID: 9201368015887567241, guid: adcda074236f9564eb2dbe1185155239, type: 3}
-  - {fileID: 7956977844561133386, guid: fc2576803a0bb6b4194a220fc03334b5, type: 3}
-  - {fileID: 7645614019406628789, guid: bb9c53c2d212d1141ac9f0a5dbc25139, type: 3}
+  - {fileID: 1740458757316138592, guid: 1b2f58d52b3ad9c4fb79925385fdbe05, type: 3}
+  - {fileID: 3285567565541090107, guid: adcda074236f9564eb2dbe1185155239, type: 3}
+  - {fileID: 6262891047374624585, guid: fc2576803a0bb6b4194a220fc03334b5, type: 3}
+  - {fileID: 7759946752319422571, guid: bb9c53c2d212d1141ac9f0a5dbc25139, type: 3}
   spornpos:
   - {fileID: 128266367}
   - {fileID: 189517401}
@@ -1574,11 +1574,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3426066337513645163, guid: 2224a87ba0b556a48ae9c2dcdeaade38,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3426066337527122451, guid: 2224a87ba0b556a48ae9c2dcdeaade38,
         type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
@@ -1608,6 +1603,11 @@ PrefabInstance:
         type: 3}
       propertyPath: cutoutRange
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3426066337513645163, guid: 2224a87ba0b556a48ae9c2dcdeaade38,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2224a87ba0b556a48ae9c2dcdeaade38, type: 3}

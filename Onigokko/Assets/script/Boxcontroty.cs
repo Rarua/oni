@@ -9,6 +9,8 @@ public class Boxcontroty : MonoBehaviour
     public Gate.Gatetype no;
     public Sprite aka;
     private Keycontrotry kajin = null;
+    private float taim = 0.0f;
+    private bool m_fura = true;
     private SpriteRenderer m_SpriteRenderer;
     // Start is called before the first frame update
     void Start()
@@ -43,7 +45,21 @@ public class Boxcontroty : MonoBehaviour
         {
             StartCoroutine(OpenBox());
         }
+        taim = 0.0f;
+        m_fura = false;
         this.GetComponent<CapsuleCollider>().enabled = false;
+    }
+    public void SetTaim(float Taim)
+    {
+        taim = Mathf.Max(taim, Taim);
+    }
+    public float GetTaim()
+    {
+        return taim;
+    }
+    public bool Getfura()
+    {
+        return m_fura;
     }
     private IEnumerator OpenBox()
     {

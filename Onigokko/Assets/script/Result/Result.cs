@@ -19,7 +19,6 @@ public class Result : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Data.Instance.score.Add(true);
         var m = oyako.ChildrenSearch.GetChildren(m_Canvas[0]);
         for (int i = 0; i < m.Length; i++)
         {

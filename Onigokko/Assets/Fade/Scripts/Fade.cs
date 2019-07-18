@@ -34,7 +34,7 @@ public class Fade : MonoBehaviour
 		fade.Range = cutoutRange;
 	}
 
-	float cutoutRange;
+    float cutoutRange = 0;
 
 	void Init ()
 	{
@@ -48,14 +48,14 @@ public class Fade : MonoBehaviour
 	}
 
 	IEnumerator FadeoutCoroutine (float time, System.Action action)
-	{
-		float endTime = time * (cutoutRange);
+    {
+        cutoutRange = 1.0f;
+        float endTime = time * (cutoutRange);
 
 		var endFrame = new WaitForEndOfFrame ();
-        cutoutRange = 1.0f;
         while (cutoutRange>0.0f)
         {
-            cutoutRange -= Time.deltaTime / time;
+            cutoutRange -= (Time.deltaTime) / endTime;
             fade.Range = cutoutRange;
 			yield return endFrame;
 		}

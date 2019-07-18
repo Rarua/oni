@@ -333,7 +333,7 @@ PrefabInstance:
     - target: {fileID: 7522834280321290003, guid: f40c3da23047f3f459a12f06022eb1b2,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1615196285474986212, guid: f40c3da23047f3f459a12f06022eb1b2, type: 3}
@@ -901,6 +901,11 @@ PrefabInstance:
       propertyPath: scene
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3426066337721540097, guid: 2224a87ba0b556a48ae9c2dcdeaade38,
+        type: 3}
+      propertyPath: m_fade
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3426066337527017409, guid: 2224a87ba0b556a48ae9c2dcdeaade38,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -909,11 +914,6 @@ PrefabInstance:
     - target: {fileID: 3426066339024394033, guid: 2224a87ba0b556a48ae9c2dcdeaade38,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3426066339036191899, guid: 2224a87ba0b556a48ae9c2dcdeaade38,
-        type: 3}
-      propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3426066337527122451, guid: 2224a87ba0b556a48ae9c2dcdeaade38,
@@ -979,6 +979,11 @@ PrefabInstance:
     - target: {fileID: 3426066339041754899, guid: 2224a87ba0b556a48ae9c2dcdeaade38,
         type: 3}
       propertyPath: cutoutRange
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3426066339036191899, guid: 2224a87ba0b556a48ae9c2dcdeaade38,
+        type: 3}
+      propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
