@@ -10,6 +10,7 @@ public class Playercontrora : MonoBehaviour
     [SerializeField] GameObject GameClear;
     [SerializeField] GameObject GameAbutton;
     [SerializeField] int HP = 2;
+    private Animator animator;
     botun m_Abutton;
     public int m_Keynum = 0;
     public float KeyOpen = 200.0f;
@@ -18,6 +19,7 @@ public class Playercontrora : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
         m_Abutton = GameAbutton.GetComponent<botun>();
     }
 
@@ -122,11 +124,14 @@ public class Playercontrora : MonoBehaviour
     public bool death(int dame)
     {
         HP -= dame;
-        if (HP <= 0)
+        if (HP <= 0&& HP > -10000000)
         {
-            GameOver.SetActive(true);
-            delete();
+            Debug.Log("atata");
+            StartCoroutine(anim());
+            animator.SetTrigger("Die");
+            HP = -10000000;
             return true;
+            
         }
         return false;
     }
@@ -143,6 +148,30 @@ public class Playercontrora : MonoBehaviour
         KeyDrop();
         Destroy(this.gameObject);
 
+    }
+    private IEnumerator anim()
+    {
+        yield return new WaitForSeconds(2.0f);
+        var ma = StartCoroutine(WaitAnimationEnd("idle"));
+        yield return ma;
+        GameOver.SetActive(true);
+        delete();
+    }
+    private IEnumerator WaitAnimationEnd(string animatorName)
+    {
+        bool finish = false;
+        while (!finish)
+        {
+            AnimatorStateInfo nowState = animator.GetCurrentAnimatorStateInfo(0);
+            if (nowState.IsName(animatorName))
+            {
+                finish = true;
+            }
+            else
+            {
+                yield return new WaitForSeconds(0.1f);
+            }
+        }
     }
     void KeyDrop()
     {

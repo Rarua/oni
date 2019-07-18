@@ -20,7 +20,6 @@ public class weapon : MonoBehaviour
     }
     void OnTriggerEnter(Collider t)
     {
-        Debug.Log(21321313213112131);
         if (t.gameObject.tag == "Player")
         {
             Director.death(t.gameObject.GetComponent<Playercontrora>().No, dame);

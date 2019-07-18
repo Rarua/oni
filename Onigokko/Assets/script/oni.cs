@@ -26,7 +26,7 @@ public class oni : MonoBehaviour
        // Debug.Log(attak);
         if (k != null)
         {
-            if (k.A /*&& attak == true*/)
+            if (k.A && attak == true)
             {
                 coroutine = attac();
                 StartCoroutine(coroutine);
