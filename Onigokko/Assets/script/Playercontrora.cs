@@ -26,7 +26,7 @@ public class Playercontrora : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(m_Keynum);
+
     }
     void OnTriggerEnter(Collider t)
     {
@@ -46,7 +46,7 @@ public class Playercontrora : MonoBehaviour
         while (true)
         {
             {
-                Debug.Log("nana");
+
                 GameAbutton.SetActive(true);
                 var m = Box.GetComponent<Boxcontroty>();
                 m_Abutton.Boxopentime(m.GetTaim());
@@ -56,7 +56,7 @@ public class Playercontrora : MonoBehaviour
                     m.SetTaim(m_Abutton.gauge());
                     yield return null;
                 }
-                Debug.Log("終わり！！！閉廷！！！！");
+
                 if (m.Getfura())
                 {
                     m.BoxOpen(this.transform);
@@ -126,9 +126,11 @@ public class Playercontrora : MonoBehaviour
         HP -= dame;
         if (HP <= 0&& HP > -10000000)
         {
-            Debug.Log("atata");
-            StartCoroutine(anim());
-            animator.SetTrigger("Die");
+           // Debug.Log("atata");
+          //  StartCoroutine(anim());
+           // animator.SetTrigger("Die");
+            GameOver.SetActive(true);
+            delete();
             HP = -10000000;
             return true;
             
@@ -138,6 +140,7 @@ public class Playercontrora : MonoBehaviour
     public bool clear()
     {
         GameClear.SetActive(true);
+        KeyDrop();
         delete();
         return true;
     }
@@ -151,11 +154,9 @@ public class Playercontrora : MonoBehaviour
     }
     private IEnumerator anim()
     {
-        yield return new WaitForSeconds(2.0f);
-        var ma = StartCoroutine(WaitAnimationEnd("idle"));
-        yield return ma;
-        GameOver.SetActive(true);
-        delete();
+        //yield return new WaitForSeconds(2.0f);
+        //var ma = StartCoroutine(WaitAnimationEnd("idle"));
+        yield return null;
     }
     private IEnumerator WaitAnimationEnd(string animatorName)
     {
@@ -178,7 +179,9 @@ public class Playercontrora : MonoBehaviour
         var Childrens = oyako.ChildrenSearch.GetChildren(this.gameObject);
         var manager = GameObject.FindWithTag("KeyManager");
         int j = 0;
+        Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!!");
         List<Keycontrotry> ma = new List<Keycontrotry>();
+
         for (int i = 0; i < Childrens.Length; i++)
         {
             if (Childrens[i].tag == "key")
@@ -188,6 +191,7 @@ public class Playercontrora : MonoBehaviour
                 //Destroy(Childrens[i]);
             }
         }
+        Debug.Log(ma.Count);
         manager.GetComponent<KeyManager>().KeySpawn(ma,j);
 
     }

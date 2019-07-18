@@ -21,7 +21,6 @@ public class kayhyouji : MonoBehaviour
 
        if (Kaynum!= num)
         {
-            Debug.Log("ndeahf213123a");
             for (int i = 0; i < m.Length; i++)
             {
                 if(i < num)
@@ -30,13 +29,11 @@ public class kayhyouji : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("12313213123323");
                     m[i].SetActive(false);
                 }
             }
             if(Kaynum < num)
             {
-                Debug.Log("ndeahfa");
                 //StopCoroutine(Tekaiten());
                 StartCoroutine(Tekaiten());
             }
