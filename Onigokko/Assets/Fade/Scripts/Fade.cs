@@ -27,14 +27,14 @@ using UnityEngine.Assertions;
 public class Fade : MonoBehaviour
 {
 	IFade fade;
+    void Awake()
+    {
 
-	void Start ()
-	{
-		Init ();
-		fade.Range = cutoutRange;
-	}
+        Init();
+        fade.Range = cutoutRange;
 
-    float cutoutRange = 0;
+    }
+    float cutoutRange = 0.0f;
 
 	void Init ()
 	{
@@ -53,11 +53,11 @@ public class Fade : MonoBehaviour
         float endTime = time * (cutoutRange);
 
 		var endFrame = new WaitForEndOfFrame ();
-        while (cutoutRange>0.0f)
+        while (cutoutRange > 0.0f)
         {
             cutoutRange -= (Time.deltaTime) / endTime;
             fade.Range = cutoutRange;
-			yield return endFrame;
+			yield return null;
 		}
 		cutoutRange = 0;
 		fade.Range = cutoutRange;

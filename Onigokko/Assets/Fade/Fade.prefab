@@ -225,7 +225,8 @@ PrefabInstance:
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 7
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7105545675334345711, guid: 53c22e1773be7f84aad8ed8b7b58fa6e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 53c22e1773be7f84aad8ed8b7b58fa6e, type: 3}
 --- !u!1 &3426066337513645163 stripped
 GameObject:
@@ -354,7 +355,8 @@ PrefabInstance:
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 7
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7105545675334345711, guid: 53c22e1773be7f84aad8ed8b7b58fa6e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 53c22e1773be7f84aad8ed8b7b58fa6e, type: 3}
 --- !u!1 &3426066339036191899 stripped
 GameObject:

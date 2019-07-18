@@ -83,7 +83,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kaji: {fileID: 170560, guid: cc5de5e674870ca479a40105f80555ad, type: 3}
-  sprit: {fileID: 0}
+  sprit: {fileID: 3647468499448848146}
   no: 0
   aka: {fileID: 21300000, guid: b43dbbe26a4fb9c478a48ea0dbfce427, type: 3}
 --- !u!136 &597042908826373120
@@ -13652,11 +13652,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8995104153904588333}
     m_Modifications:
-    - target: {fileID: 749520459354576468, guid: 2ad1f20afd7f7bf46bbb43170ebdc33d,
-        type: 3}
-      propertyPath: m_Name
-      value: New Sprite
-      objectReference: {fileID: 0}
     - target: {fileID: 1029118188775640535, guid: 2ad1f20afd7f7bf46bbb43170ebdc33d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13722,8 +13717,19 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.5000006
       objectReference: {fileID: 0}
+    - target: {fileID: 749520459354576468, guid: 2ad1f20afd7f7bf46bbb43170ebdc33d,
+        type: 3}
+      propertyPath: m_Name
+      value: New Sprite
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ad1f20afd7f7bf46bbb43170ebdc33d, type: 3}
+--- !u!1 &3647468499448848146 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 749520459354576468, guid: 2ad1f20afd7f7bf46bbb43170ebdc33d,
+    type: 3}
+  m_PrefabInstance: {fileID: 4105239574914320710}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3940812602954302609 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1029118188775640535, guid: 2ad1f20afd7f7bf46bbb43170ebdc33d,

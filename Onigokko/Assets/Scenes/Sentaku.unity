@@ -1969,7 +1969,7 @@ PrefabInstance:
     - target: {fileID: 3426066337721540097, guid: 2224a87ba0b556a48ae9c2dcdeaade38,
         type: 3}
       propertyPath: scene
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3426066337721540097, guid: 2224a87ba0b556a48ae9c2dcdeaade38,
         type: 3}
@@ -2837,6 +2837,11 @@ PrefabInstance:
       propertyPath: GameAbutton.Array.data[1]
       value: 
       objectReference: {fileID: 57788414}
+    - target: {fileID: 1740458757316138598, guid: 1b2f58d52b3ad9c4fb79925385fdbe05,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 412664a01ab9d144ab6cc77b20b4169c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b2f58d52b3ad9c4fb79925385fdbe05, type: 3}
 --- !u!1001 &3285567566183782141
@@ -2916,6 +2921,11 @@ PrefabInstance:
       propertyPath: GameAbutton.Array.data[1]
       value: 
       objectReference: {fileID: 261409936}
+    - target: {fileID: 3285567565541090101, guid: adcda074236f9564eb2dbe1185155239,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 412664a01ab9d144ab6cc77b20b4169c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: adcda074236f9564eb2dbe1185155239, type: 3}
 --- !u!1001 &6262891048419994734
@@ -2995,6 +3005,11 @@ PrefabInstance:
       propertyPath: GameAbutton.Array.data[1]
       value: 
       objectReference: {fileID: 903015983}
+    - target: {fileID: 6262891047374624583, guid: fc2576803a0bb6b4194a220fc03334b5,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 412664a01ab9d144ab6cc77b20b4169c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc2576803a0bb6b4194a220fc03334b5, type: 3}
 --- !u!1001 &7759946753938685403
@@ -3074,5 +3089,10 @@ PrefabInstance:
       propertyPath: GameAbutton.Array.data[1]
       value: 
       objectReference: {fileID: 1010216476}
+    - target: {fileID: 7759946752319422569, guid: bb9c53c2d212d1141ac9f0a5dbc25139,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 412664a01ab9d144ab6cc77b20b4169c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb9c53c2d212d1141ac9f0a5dbc25139, type: 3}

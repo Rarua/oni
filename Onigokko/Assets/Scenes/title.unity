@@ -333,7 +333,7 @@ PrefabInstance:
     - target: {fileID: 7522834280321290003, guid: f40c3da23047f3f459a12f06022eb1b2,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1615196285474986212, guid: f40c3da23047f3f459a12f06022eb1b2, type: 3}
@@ -941,6 +941,11 @@ PrefabInstance:
       propertyPath: cutoutRange
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3426066337519224803, guid: 2224a87ba0b556a48ae9c2dcdeaade38,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3426066339024483043, guid: 2224a87ba0b556a48ae9c2dcdeaade38,
         type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
@@ -980,6 +985,11 @@ PrefabInstance:
         type: 3}
       propertyPath: cutoutRange
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3426066339041754899, guid: 2224a87ba0b556a48ae9c2dcdeaade38,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3426066339036191899, guid: 2224a87ba0b556a48ae9c2dcdeaade38,
         type: 3}

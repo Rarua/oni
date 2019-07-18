@@ -22,24 +22,27 @@ public class SerectManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(m_frag)
+        if (ha.Getfura())
         {
-            int No = 0;
-            for (int i = 0; i < m_serekuto.Count; i++)
+            if (m_frag)
             {
-                if (m_serekuto[i].m_bool)
+                int No = 0;
+                for (int i = 0; i < m_serekuto.Count; i++)
                 {
-                    No++;
+                    if (m_serekuto[i].m_bool)
+                    {
+                        No++;
+                    }
+                    else
+                    {
+                        break;
+                    }
                 }
-                else
+                if (No >= m_serekuto.Count)
                 {
-                    break;
+                    ha.m_fade = true;
+                    m_frag = false;
                 }
-            }
-            if (No >= m_serekuto.Count)
-            {
-                ha.m_fade = true;
-                m_frag = false;
             }
         }
         //else
