@@ -31,20 +31,27 @@ public class Boxcontroty : MonoBehaviour
     }
     public void sporn()
     {
-        Debug.Log("??????????????????");
         kajin = (Instantiate(kaji, this.transform.position, Quaternion.identity) as GameObject).GetComponent<Keycontrotry>();
         kajin.transform.parent = this.transform;
         kajin.SetNo(no);
         kajin.gameObject.SetActive(true);
         this.GetComponent<CapsuleCollider>().enabled = true;
         taim = 0.0f;
+        m_fura = true;
         animator.Play("CloseAnime");
     }
     public void BoxOpen(Transform player)
     {
         if (kajin)
         {
-            kajin.GetKey(player);
+            var n = oyako.ChildrenSearch.GetChildren(this.gameObject);
+            for(int i=0;i<n.Length;i++)
+            {
+                if(n[i].GetComponent<Keycontrotry>())
+                {
+                    n[i].GetComponent<Keycontrotry>().GetKey(player);
+                }
+            }
             this.transform.parent.GetComponent<KeyManager>().Bomb1(no, this);
         }
         else

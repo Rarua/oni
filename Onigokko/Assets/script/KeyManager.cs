@@ -24,7 +24,7 @@ public class KeyManager : MonoBehaviour
     public int Keynum = 2;
     public int Boxnum = 5;
     List<GameObject> mam = new List<GameObject>();
-    List<float>  AspoonNo= new List<float>();
+    List<float> AspoonNo = new List<float>();
     List<float> BspoonNo = new List<float>();
     List<Boxcontroty> AKeylist = new List<Boxcontroty>();
     List<Boxcontroty> BKeylist = new List<Boxcontroty>();
@@ -35,9 +35,9 @@ public class KeyManager : MonoBehaviour
         //int[,] Noka;
         //Dictionary<int, GameObject> fraieh = new Dictionary<int, GameObject>();
 
-        for(int i=0;i< mam1.Length;i++)
+        for (int i = 0; i < mam1.Length; i++)
         {
-            if(mam1[i].GetComponent<Boxcontroty>())
+            if (mam1[i].GetComponent<Boxcontroty>())
             {
                 mam.Add(mam1[i]);
             }
@@ -48,15 +48,15 @@ public class KeyManager : MonoBehaviour
             if (m != 0)
             {
                 AKeylist.Add(mam[i].GetComponent<Boxcontroty>());
-                AKeylist[AKeylist.Count-1].SetNo(Gate.Gatetype.One);
+                AKeylist[AKeylist.Count - 1].SetNo(Gate.Gatetype.One);
             }
             else
             {
                 BKeylist.Add(mam[i].GetComponent<Boxcontroty>());
-                BKeylist[BKeylist.Count-1].SetNo(Gate.Gatetype.Two);
+                BKeylist[BKeylist.Count - 1].SetNo(Gate.Gatetype.Two);
             }
         }
-        
+
         while (AKeylist.Count < (mam.Count / 2))
         {
             var masma = Random.Range(0, BKeylist.Count);
@@ -87,7 +87,7 @@ public class KeyManager : MonoBehaviour
             BKeylist.Remove(BKeylist[masma]);
             Destroy(Object.gameObject);
         }
-        for(int i=0;i< Boxnum; i++)
+        for (int i = 0; i < Boxnum; i++)
         {
             AspoonNo.Add(0);
             BspoonNo.Add(0);
@@ -123,13 +123,21 @@ public class KeyManager : MonoBehaviour
         if (No == Gate.Gatetype.One)
         {
             AspoonNo[(int)AspoonNo[AKeylist.IndexOf(takara)]] = 0;
+            for (int i = 0; i < AspoonNo.Count; i++)
+            {
+                Debug.Log(AspoonNo[i]);
+            }
         }
         else
         {
             BspoonNo[(int)BspoonNo[BKeylist.IndexOf(takara)]] = 0;
+            for (int i = 0; i < BspoonNo.Count; i++)
+            {
+                Debug.Log(BspoonNo[i]);
+            }
         }
     }
-    public void KeySpawn(List<Keycontrotry> No,int kosuu)
+    public void KeySpawn(List<Keycontrotry> No, int kosuu)
     {
         //for (int i = 0; i < AspoonNo.Count; i++)
         //{
@@ -157,9 +165,10 @@ public class KeyManager : MonoBehaviour
         int bagu = 0;
         do
         {
-            SpawnNo = Random.Range(0, Keylist.Count);
+            SpawnNo = Random.Range(0, an.Count);
             bagu++;
-        } while (an[SpawnNo] != 0&& bagu<=10000);
+        } while (an[SpawnNo] != 0 && bagu <= 10000);
+
         Keylist[SpawnNo].GetComponent<Boxcontroty>().sporn();
         an[SpawnNo] = 1;
     }
