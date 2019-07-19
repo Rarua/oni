@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.015354726, g: 0.018088492, b: 0.07615202, a: 1}
+  m_IndirectSpecularColor: {r: 0.05440197, g: 0.06329539, b: 0.13745749, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1916,7 +1916,7 @@ MonoBehaviour:
   GameAbutton:
   - {fileID: 1894702772}
   - {fileID: 1098427030}
-  m_bool: 1
+  m_bool: 0
 --- !u!1 &1623225436
 GameObject:
   m_ObjectHideFlags: 0
@@ -2732,6 +2732,11 @@ PrefabInstance:
       propertyPath: GameAbutton.Array.data[1]
       value: 
       objectReference: {fileID: 261409936}
+    - target: {fileID: 3285567565541090106, guid: adcda074236f9564eb2dbe1185155239,
+        type: 3}
+      propertyPath: m_bool
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: adcda074236f9564eb2dbe1185155239, type: 3}
 --- !u!1001 &6262891048419994734
@@ -2819,7 +2824,7 @@ PrefabInstance:
     - target: {fileID: 6262891047374624582, guid: fc2576803a0bb6b4194a220fc03334b5,
         type: 3}
       propertyPath: m_bool
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc2576803a0bb6b4194a220fc03334b5, type: 3}
