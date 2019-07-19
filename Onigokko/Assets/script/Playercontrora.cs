@@ -124,6 +124,7 @@ public class Playercontrora : MonoBehaviour
     {
         HP -= dame;
         animator.SetBool("WalkHit", true);
+        Debug.Log("fjkan2");
         if (HP <= 0&& HP > -10000000)
         {
            // Debug.Log("atata");
