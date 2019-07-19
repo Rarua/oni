@@ -21,6 +21,7 @@ public class Playercontrora : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         m_Abutton = GameAbutton.GetComponent<botun>();
+        animator.SetBool("WalkHit", false);
     }
 
     // Update is called once per frame
@@ -122,6 +123,7 @@ public class Playercontrora : MonoBehaviour
     public bool death(int dame)
     {
         HP -= dame;
+        animator.SetBool("WalkHit", true);
         if (HP <= 0&& HP > -10000000)
         {
            // Debug.Log("atata");
