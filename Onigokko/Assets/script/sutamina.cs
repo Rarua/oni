@@ -7,7 +7,7 @@ public class sutamina : MonoBehaviour
 {
     [SerializeField] GameObject Playerpoint;
     //[SerializeField] GamePad.Button button;
-    float m_sutamina;
+    public float m_sutamina;
     Move m_move;
     public Image UIobj;
     float time = 0.0f;
@@ -15,7 +15,7 @@ public class sutamina : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        m_sutamina = Playerpoint.GetComponent<Playercontrora>().KeyOpen;
+        //m_sutamina = Playerpoint.GetComponent<Playercontrora>().KeyOpen;
         time = m_sutamina;
         //m_move = Playerpoint.GetComponent<Move>();
     }
@@ -25,7 +25,7 @@ public class sutamina : MonoBehaviour
     {
         if (frag)
         {
-            time += Time.deltaTime;
+            time += Time.deltaTime * 0.2f;
             UIobj.fillAmount = time / m_sutamina;
             if (time >= m_sutamina)
             {
@@ -35,7 +35,7 @@ public class sutamina : MonoBehaviour
         }
         else
         {
-            time += Time.deltaTime * 0.5f;
+            time += Time.deltaTime * 0.3f;
             UIobj.fillAmount = time / m_sutamina;
             if (time >= m_sutamina)
             {
