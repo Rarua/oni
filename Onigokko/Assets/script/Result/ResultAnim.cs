@@ -18,7 +18,7 @@ public class ResultAnim : MonoBehaviour
     {
         if (m_furag)
         {
-            transform.Translate(Vector3.forward * 0.05f);
+            transform.Translate(Vector3.forward  * Time.deltaTime);
         }
     }
     private IEnumerator anim()

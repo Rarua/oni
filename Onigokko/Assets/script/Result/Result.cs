@@ -19,6 +19,7 @@ public class Result : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Data.Instance.score.Add(true);
         var m = oyako.ChildrenSearch.GetChildren(m_Canvas[0]);
         for (int i = 0; i < m.Length; i++)
         {
@@ -94,7 +95,7 @@ public class Result : MonoBehaviour
             {
                 for (int i = 0; i < pre.Count; i++)
                 {
-                    pre[i].transform.Translate(Vector3.forward * 0.15f);
+                    pre[i].transform.Translate(Vector3.forward *2.5f * Time.deltaTime);
                    //pre[i].transform.position = new Vector3(pre[i].transform.position.x, pre[i].transform.position.y, pre[i].transform.position.z + 0.35f);
                 }
             }
